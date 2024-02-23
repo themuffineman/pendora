@@ -3,13 +3,14 @@ import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
 import vercel from "../public/vercel.svg"
 import grim from "../public/hero-images/grim.png"
+import aston from "../public/hero-images/aston.webp"
 
 
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-start relative  bg-neutral-900">
-      <nav className="w-full h-max p-4 flex justify-between items-center bg-black bg-opacity-50 backdrop-blur-md sticky top-0">
+      <nav className="z-50 w-full h-max p-4 flex justify-between items-center bg-black bg-opacity-50 backdrop-blur-md sticky top-0">
         <div>
           <Image src={vercel} width="100" height="100" atl="logo"/>
         </div>
@@ -40,26 +41,59 @@ export default function Home() {
               className="absolute inset-0 rounded-md"
             />
             <div className="absolute inset-0 flex items-end p-4">
-              <div className="bg-transparent backdrop-blur-md text-white rounded-md p-2">
+              <div className="bg-transparent border border-white backdrop-blur-md text-white rounded-md p-2">
                 The grim reaper in a cafe
               </div>
             </div>
           </div>
           <div className="relative w-64 h-64">
             <Image
-              src={grim}  
+              src={aston}  
               layout="fill"
               objectFit="cover"
               className="absolute inset-0 rounded-md"
             />
             <div className="absolute inset-0 flex items-end p-4">
-              <div className="bg-transparent backdrop-blur-md text-white rounded-md p-2">
-                The grim reaper in a cafe
+              <div className="bg-transparent border border-white backdrop-blur-md text-white rounded-md p-2">
+                The new aston martin
               </div>
             </div>
           </div>
         </div>
-        
+      </section>
+      <section className="flex flex-col items-center gap-20 mt-40">
+        <h2 className="text-7xl font-normal tracking-tighter text-white">Features</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <div className=" rounded-md flex flex-col w-96 h-[30rem] text-white border border-gray-500 hover:border-white">
+            <div className="w-full h-[80%] relative ">
+            <Image
+                src={aston}  
+                layout="fill"
+                objectFit="cover"
+                className="rounded-md rounded-b-none"
+              />
+            </div>
+            <div className="w-full h-[20%] text-white p-4 ">
+              <h3 className="text-xl">Built-in Optimizations</h3>
+              <p className="text-sm text-gray-500 text-ellipsis">Automatic Image, Font, and Script Optimizations for improved UX and Core Web Vitals.</p>
+            </div>
+          </div>
+          <div className=" rounded-md flex flex-col w-96 h-[30rem] text-white border border-gray-500 hover:border-white">
+            <div className="w-full h-[80%] relative ">
+            <Image
+                src={aston}  
+                layout="fill"
+                objectFit="cover"
+                className="rounded-md rounded-b-none"
+              />
+            </div>
+            <div className="w-full h-[20%] text-white p-4 ">
+              <h3 className="text-xl">Built-in Optimizations</h3>
+              <p className="text-sm text-gray-500 text-ellipsis">Automatic Image, Font, and Script Optimizations for improved UX and Core Web Vitals.</p>
+            </div>
+
+        </div>
+        </div>
       </section>
     </main>
   );
