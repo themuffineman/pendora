@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import vercel from "../public/vercel.svg"
 import grim from "../public/hero-images/grim.png"
 import aston from "../public/hero-images/aston.webp"
@@ -94,6 +95,24 @@ export default function Home() {
 
         </div>
         </div>
+      </section>
+      <section>
+        <div className="flex justify-between items-center text-white w-full p-4 gap-20">
+          <h3 className="text-3xl">Pricing</h3>
+          <Tabs defaultValue="account" className="w-[400px]">
+            <TabsList>
+              <TabsTrigger value="monthly" className="">Monthly</TabsTrigger>
+              <TabsTrigger value="yearly">Yearly</TabsTrigger>
+            </TabsList>
+            <TabsContent value="monthly">
+
+            </TabsContent>
+            <TabsContent value="yearly">
+
+            </TabsContent>
+        </Tabs>
+        </div>
+        <div></div>
       </section>
     </main>
   );
