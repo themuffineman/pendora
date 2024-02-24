@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import vercel from "../public/vercel.svg"
 import grim from "../public/hero-images/grim.png"
 import aston from "../public/hero-images/aston.webp"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 
 
@@ -97,10 +98,10 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <div className="flex flex-col items-center text-white w-full mx-auto p-4 gap-20">
+        <div className="flex flex-col items-center text-white w-full  p-4 gap-20">
           <h3 className="text-7xl font-normal tracking-tighter text-white">Pricing</h3>
           
-            <Tabs defaultValue="monthly" className="w-full">
+            <Tabs defaultValue="monthly" className="w-full mx-auto">
               <TabsList className="grid grid-cols-2 bg-neutral-700 w-[300px] mb-4  text-white">
                 <TabsTrigger value="monthly" className="bg-neutral-700" >Monthly</TabsTrigger>
                 <TabsTrigger value="yearly" className="bg-neutral-700">Yearly</TabsTrigger>
@@ -177,6 +178,33 @@ export default function Home() {
           
         </div>
         <div></div>
+      </section>
+      <section className="w-full flex justify-center ">
+      <div className="flex flex-col items-center text-white w-3/4 p-4 gap-20">
+        <h3 className="text-7xl font-normal tracking-tighter text-white">FAQs</h3>
+        <Accordion type="single" collapsible className="w-full px-5">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It adheres to the WAI-ARIA design pattern.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>Is it styled?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It comes with default styles that matches the other
+              components&apos; aesthetic.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger>Is it animated?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It&apos;s animated by default, but you can disable it if you
+              prefer.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
       </section>
     </main>
   );
