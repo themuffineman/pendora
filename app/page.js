@@ -22,7 +22,7 @@ export default function Home() {
         </div>
         <div className="flex gap-5 items-center">
           <Link href="/"><Button variant="primary" className="rounded-3xl border hover:border-white bg-white hover:bg-black hover:text-white font-bold">Login</Button></Link>
-          <Link href="/"><Button variant="primary" className="rounded-3xl border border-transparent hover:border-white bg-yellow-200 text-black font-bold" >Create Account</Button></Link>
+          <Link href="/"><Button variant="primary" className="rounded-3xl border border-transparent hover:border-white bg-green-400 text-black font-bold" >Create Account</Button></Link>
         </div>
       </nav>
       <section>
@@ -97,20 +97,84 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <div className="flex justify-between items-center text-white w-full p-4 gap-20">
-          <h3 className="text-3xl">Pricing</h3>
-          <Tabs defaultValue="account" className="w-[400px]">
-            <TabsList>
-              <TabsTrigger value="monthly" className="">Monthly</TabsTrigger>
-              <TabsTrigger value="yearly">Yearly</TabsTrigger>
-            </TabsList>
-            <TabsContent value="monthly">
-
-            </TabsContent>
-            <TabsContent value="yearly">
-
-            </TabsContent>
-        </Tabs>
+        <div className="flex flex-col items-center text-white w-full mx-auto p-4 gap-20">
+          <h3 className="text-7xl font-normal tracking-tighter text-white">Pricing</h3>
+          
+            <Tabs defaultValue="monthly" className="w-full">
+              <TabsList className="grid grid-cols-2 bg-neutral-700 w-[300px] mb-4  text-white">
+                <TabsTrigger value="monthly" className="bg-neutral-700" >Monthly</TabsTrigger>
+                <TabsTrigger value="yearly" className="bg-neutral-700">Yearly</TabsTrigger>
+              </TabsList>
+              <TabsContent value="monthly" className="flex gap-10">
+                <div className="pricing_card flex flex-col gap-4 p-2">
+                  <div className="p-4 border border-neutral-300 flex flex-col rounded-md items-start gap-4">
+                    <h3 className="text-md tracking-tight text-white">Poverty Plan</h3>
+                    <p className="text-lg tracking-tight text-white font-bold">$0</p>
+                  </div>
+                  <div>
+                    <ul className="list-item">
+                      <li>✅10 image credits per day</li>
+                      <li>✅Prompter Program</li>
+                      <li>❌Background Remover</li>
+                      <li>❌Super Resolution</li>
+                      <li>❌Access to Community Prompts</li>
+                    </ul>
+                  </div>
+                  <Button variant="primary" className="w-full bg-green-400 text-black p-4 rounded-3xl hover:border-white hover:border ">Subscribe</Button>
+                </div>
+                <div className="pricing_card flex flex-col gap-4 p-2">
+                  <div className="p-4 border border-neutral-300 flex flex-col rounded-md items-start gap-4">
+                    <h3 className="text-md tracking-tight text-white">Balling Plan</h3>
+                    <p className="text-lg tracking-tight text-white font-bold">$10 /month</p>
+                  </div>
+                  <div>
+                    <ul className="list-item">
+                      <li>✅10 image credits per day</li>
+                      <li>✅Prompter Program</li>
+                      <li>✅Background Remover</li>
+                      <li>✅Super Resolution</li>
+                      <li>✅Access to Community Prompts</li>
+                    </ul>
+                  </div>
+                  <Button variant="primary" className="w-full bg-green-400 text-black p-4 rounded-3xl hover:border-white hover:border ">Subscribe</Button>
+                </div>
+              </TabsContent>
+              <TabsContent value="yearly" className="flex gap-10">
+                  <div className="pricing_card flex flex-col gap-4 p-2">
+                    <div className="p-4 border border-neutral-300 flex flex-col rounded-md items-start gap-4">
+                      <h3 className="text-md tracking-tight text-white">Balling Plan</h3>
+                      <p className="text-lg tracking-tight text-white font-bold">$8 /month</p>
+                    </div>
+                    <div>
+                      <ul className="list-item">
+                        <li>✅10 image credits per day</li>
+                        <li>✅Prompter Program</li>
+                        <li>✅Background Remover</li>
+                        <li>✅Super Resolution</li>
+                        <li>✅Access to Community Prompts</li>
+                      </ul>
+                    </div>
+                    <Button variant="primary" className="w-full bg-green-400 text-black p-4 rounded-3xl hover:border-white hover:border ">Subscribe</Button>
+                  </div>
+                  <div className="pricing_card flex flex-col gap-4 p-2">
+                    <div className="p-4 border border-neutral-300 flex flex-col rounded-md items-start gap-4">
+                      <h3 className="text-md tracking-tight text-white">Balling Plan</h3>
+                      <p className="text-lg tracking-tight text-white font-bold">$8 /month</p>
+                    </div>
+                    <div>
+                      <ul className="list-item">
+                        <li>✅10 image credits per day</li>
+                        <li>✅Prompter Program</li>
+                        <li>✅Background Remover</li>
+                        <li>✅Super Resolution</li>
+                        <li>✅Access to Community Prompts</li>
+                      </ul>
+                    </div>
+                    <Button variant="primary" className="w-full bg-green-400 text-black p-4 rounded-3xl hover:border-white hover:border ">Subscribe</Button>
+                  </div>
+              </TabsContent>
+          </Tabs>
+          
         </div>
         <div></div>
       </section>
