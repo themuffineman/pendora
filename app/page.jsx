@@ -91,13 +91,13 @@ export default function Home() {
                 <PricingCard plan={freePlan} period="yearly"/>
                 <PricingCard plan={daVinciPlan} period="yearly"/>
               </TabsContent>
-          </Tabs>
+            </Tabs>
         </div>
       </section>
       <section className="w-full flex justify-center ">
       <div className="flex flex-col items-center text-white w-3/4 justify-start gap-20 p-16">
         <h3 className="text-7xl font-normal tracking-tighter z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">FAQs</h3>
-        <Accordion type="single" collapsible className="w-full px-5">
+        <Accordion type="single" collapsible className="w-full p-5 bg-neutral-950 bg-opacity-50 backdrop-blur-md rounded-md">
           <AccordionItem value="item-1">
             <AccordionTrigger>Whats The Refunds Policy?</AccordionTrigger>
             <AccordionContent>
