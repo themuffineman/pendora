@@ -15,15 +15,19 @@ import aston from "../public/hero-images/aston.webp"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { HeroGridCard } from "@/components/HeroGridCard";
 import styles from '@/components/components.module.css';
+import FeaturesCard from "@/components/FeaturesCard";
+import PricingCard from "@/components/PricingCard";
+import { freePlan } from "@/utils/PricingFeatures";
+import { daVinciPlan } from "@/utils/PricingFeatures";
 
 
 
 export default function Home() {
   return (
-    <main className=" min-h-screen justify-start  p-16 text-center flex flex-col items-center gap-4 w-full  bg-black bg-dot-white/[0.2] relative" >
-      <nav className="z-50 w-full h-max p-4 flex justify-between items-center bg-black bg-opacity-50 backdrop-blur-md sticky top-0">
+    <main className=" min-h-screen justify-start text-center flex flex-col items-center gap-4 w-full  bg-black bg-dot-white/[0.2] relative" >
+      <nav className="z-50 bg-neutral-950 w-full h-max p-4 flex justify-between items-center  bg-opacity-50 backdrop-blur-md sticky top-0">
         <div>
-          <Image src={pendora_logo} width="100" height="100" atl="logo"/>
+         <Link href="/"><Image src={pendora_logo} width="100" height="100" atl="logo"/></Link> 
         </div>
         <div className="flex gap-5 items-center">
           <Link href="/" className="hover:text-neutral-300 text-white">Features</Link>
@@ -35,17 +39,16 @@ export default function Home() {
           <Link href="/"><Button variant="primary" className="rounded-3xl border border-transparent hover:border-white bg-pendora-yellow text-neutral-900 font-bold" >Create Account</Button></Link>
         </div>
       </nav>
-      <div className="absolute pointer-events-none inset-0 flex items-center justify-center  bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,white)]"></div>
-      <section className=" w-full flex flex-col items-center">
-        <div className="p-16 text-center flex flex-col items-center gap-4  h-[30rem] w-full relative ">
-          <h1 className="text-8xl font-font tracking-tighter  px-24  relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">The canvas is your oyster</h1>
-          <h3 className="text-md px-72 font-light text-white">Generate your own images, edit and style them to create out of this world graphics all with the power of AI. Turn your imagination into reality</h3>
+      <section className=" w-full h-max flex flex-col justify-start pt-0 items-center ">
+        <div className="px-4 text-center flex flex-col items-center justify-start gap-4  h-[30rem] w-full relative ">
+          <h1 className="text-9xl font-font tracking-tighter  px-24  relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">The canvas is your oyster</h1>
+          <h3 className="text-lg px-72 font-light text-gray-500">Generate your own images create out of this world graphics all with the power of AI. Bring your imagination to life</h3>
           <div>
           <MButton borderRadius="4rem" duration={8000} className="rounded-3xl  bg-black text-white font-bold" >Try it Out</MButton>
           </div>
         </div>
-        <div className=" w-full overflow-x-hidden grid grid-flow-col grid-rows-1 gap-x-[2%]">
-          <div className={`gap-x-[4%] grid grid-flow-col grid-rows-1 ${styles.marquee} border border-white`}>
+        <div className=" w-full overflow-x-hidden  grid-flow-col grid-rows-1 gap-x-[2%] hidden">
+          <div className={`gap-x-[4%] grid grid-flow-col border border-white`}>
             <HeroGridCard src={img1} prompt="Asian Princess"/>
             <HeroGridCard src={img2} prompt="Asian Princess"/>
             <HeroGridCard src={img3} prompt="Asian Princess"/>
@@ -63,148 +66,63 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="flex flex-col items-center gap-20 mt-40">
-        <h2 className="text-7xl font-normal tracking-tighter text-white">Features</h2>
-        <div className="grid grid-cols-2 gap-4">
-          <div className=" rounded-md flex flex-col w-96 h-[30rem] text-white border border-gray-500 hover:border-white">
-            <div className="w-full h-[80%] relative ">
-            <Image
-                src={aston}  
-                layout="fill"
-                objectFit="cover"
-                className="rounded-md rounded-b-none"
-              />
-            </div>
-            <div className="w-full h-[20%] text-white p-4 ">
-              <h3 className="text-xl">Built-in Optimizations</h3>
-              <p className="text-sm text-gray-500 text-ellipsis">Automatic Image, Font, and Script Optimizations for improved UX and Core Web Vitals.</p>
-            </div>
-          </div>
-          <div className=" rounded-md flex flex-col w-96 h-[30rem] text-white border border-gray-500 hover:border-white">
-            <div className="w-full h-[80%] relative ">
-            <Image
-                src={aston}  
-                layout="fill"
-                objectFit="cover"
-                className="rounded-md rounded-b-none"
-              />
-            </div>
-            <div className="w-full h-[20%] text-white p-4 ">
-              <h3 className="text-xl">Built-in Optimizations</h3>
-              <p className="text-sm text-gray-500 text-ellipsis">Automatic Image, Font, and Script Optimizations for improved UX and Core Web Vitals.</p>
-            </div>
-
-        </div>
+      <section className="flex flex-col items-center justify-start gap-20 p-16">
+        <h2 className="text-7xl font-normal tracking-tighter z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">Features</h2>
+        <div className="grid grid-cols-2 gap-4 gap-y-8">
+          <FeaturesCard src={img1} title={"lorem Ipsum"} description={"lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum"}/>
+          <FeaturesCard src={img2} title={"lorem Ipsum"} description={"lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum"}/>
+          <FeaturesCard src={img3} title={"lorem Ipsum"} description={"lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum"}/>
+          <FeaturesCard src={img3} title={"lorem Ipsum"} description={"lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum lorem Ipsum"}/>
         </div>
       </section>
       <section>
-        <div className="flex flex-col items-center text-white w-full  p-4 gap-20">
-          <h3 className="text-7xl font-normal tracking-tighter text-white">Pricing</h3>
-          
+        <div className="flex flex-col items-center text-white w-full justify-start gap-20 p-16">
+          <h3 className="text-7xl font-normal tracking-tighter z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">Pricing</h3>
             <Tabs defaultValue="monthly" className="w-full mx-auto">
               <TabsList className="grid grid-cols-2 bg-neutral-700 w-[300px] mb-4  text-white">
                 <TabsTrigger value="monthly" className="bg-neutral-700" >Monthly</TabsTrigger>
                 <TabsTrigger value="yearly" className="bg-neutral-700">Yearly</TabsTrigger>
               </TabsList>
               <TabsContent value="monthly" className="flex gap-10">
-                <div className="pricing_card flex flex-col gap-4 p-2">
-                  <div className="p-4 border border-neutral-300 flex flex-col rounded-md items-start gap-4">
-                    <h3 className="text-md tracking-tight text-white">Poverty Plan</h3>
-                    <p className="text-lg tracking-tight text-white font-bold">$0</p>
-                  </div>
-                  <div>
-                    <ul className="list-item">
-                      <li>✅10 image credits per day</li>
-                      <li>✅Prompter Program</li>
-                      <li>❌Background Remover</li>
-                      <li>❌Super Resolution</li>
-                      <li>❌Access to Community Prompts</li>
-                    </ul>
-                  </div>
-                  <Button variant="primary" className="w-full bg-green-400 text-black p-4 rounded-3xl hover:border-white hover:border ">Subscribe</Button>
-                </div>
-                <div className="pricing_card flex flex-col gap-4 p-2">
-                  <div className="p-4 border border-neutral-300 flex flex-col rounded-md items-start gap-4">
-                    <h3 className="text-md tracking-tight text-white">Balling Plan</h3>
-                    <p className="text-lg tracking-tight text-white font-bold">$10 /month</p>
-                  </div>
-                  <div>
-                    <ul className="list-item">
-                      <li>✅10 image credits per day</li>
-                      <li>✅Prompter Program</li>
-                      <li>✅Background Remover</li>
-                      <li>✅Super Resolution</li>
-                      <li>✅Access to Community Prompts</li>
-                    </ul>
-                  </div>
-                  <Button variant="primary" className="w-full bg-pendora-yellow text-black p-4 rounded-3xl hover:border-white hover:border ">Subscribe</Button>
-                </div>
+                <PricingCard plan={freePlan} period="monthly"/>
+                <PricingCard plan={daVinciPlan} period="monthly"/>
               </TabsContent>
               <TabsContent value="yearly" className="flex gap-10">
-                  <div className="pricing_card flex flex-col gap-4 p-2">
-                    <div className="p-4 border border-neutral-300 flex flex-col rounded-md items-start gap-4">
-                      <h3 className="text-md tracking-tight text-white">Balling Plan</h3>
-                      <p className="text-lg tracking-tight text-white font-bold">$8 /month</p>
-                    </div>
-                    <div>
-                      <ul className="list-item">
-                        <li>✅10 image credits per day</li>
-                        <li>✅Prompter Program</li>
-                        <li>✅Background Remover</li>
-                        <li>✅Super Resolution</li>
-                        <li>✅Access to Community Prompts</li>
-                      </ul>
-                    </div>
-                    <Button variant="primary" className="w-full bg-pendora-yellow text-black p-4 rounded-3xl hover:border-white hover:border ">Subscribe</Button>
-                  </div>
-                  <div className="pricing_card flex flex-col gap-4 p-2">
-                    <div className="p-4 border border-neutral-300 flex flex-col rounded-md items-start gap-4">
-                      <h3 className="text-md tracking-tight text-white">Balling Plan</h3>
-                      <p className="text-lg tracking-tight text-white font-bold">$8 /month</p>
-                    </div>
-                    <div>
-                      <ul className="list-item">
-                        <li>✅10 image credits per day</li>
-                        <li>✅Prompter Program</li>
-                        <li>✅Background Remover</li>
-                        <li>✅Super Resolution</li>
-                        <li>✅Access to Community Prompts</li>
-                      </ul>
-                    </div>
-                    <Button variant="primary" className="w-full bg-pendora-yellow text-black p-4 rounded-3xl hover:border-white hover:border-4 ">Subscribe</Button>
-                  </div>
+                <PricingCard plan={freePlan} period="yearly"/>
+                <PricingCard plan={daVinciPlan} period="yearly"/>
               </TabsContent>
           </Tabs>
-          
         </div>
-        <div></div>
       </section>
       <section className="w-full flex justify-center ">
-      <div className="flex flex-col items-center text-white w-3/4 p-4 gap-20">
-        <h3 className="text-7xl font-normal tracking-tighter text-white">FAQs</h3>
+      <div className="flex flex-col items-center text-white w-3/4 justify-start gap-20 p-16">
+        <h3 className="text-7xl font-normal tracking-tighter z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">FAQs</h3>
         <Accordion type="single" collapsible className="w-full px-5">
           <AccordionItem value="item-1">
-            <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionTrigger>Whats The Refunds Policy?</AccordionTrigger>
             <AccordionContent>
-              Yes. It adheres to the WAI-ARIA design pattern.
+              If you're not satisfied with the product after 3 days of use, we'll happily refund you no questions asked.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger>Is it styled?</AccordionTrigger>
+            <AccordionTrigger>Are the images any good?</AccordionTrigger>
             <AccordionContent>
-              Yes. It comes with default styles that matches the other
-              components&apos; aesthetic.
+              No, they freakin great.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
-            <AccordionTrigger>Is it animated?</AccordionTrigger>
+            <AccordionTrigger>What Are Community Prompts?</AccordionTrigger>
             <AccordionContent>
-              Yes. It&apos;s animated by default, but you can disable it if you
-              prefer.
+              It's a collection of image prompts from the community that you can use in your won generations. If someone uses your prompt in a generation you get a little compensation
             </AccordionContent>
           </AccordionItem>
         </Accordion>
       </div>
+      </section>
+      <section className="bg-neutral-950 bg-opacity-50 backdrop-blur-md w-full h-[10rem] p-10 flex items-center justify-start">
+        <div>
+          <Link href="/"><Image src={pendora_logo} width="100" height="100" atl="logo"/></Link> 
+        </div>
       </section>
     </main>
   );
