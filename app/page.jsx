@@ -2,65 +2,64 @@ import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
+import {Button as MButton} from '@/components/ui/moving-border'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import vercel from "../public/vercel.svg"
-import grim from "../public/hero-images/grim.png"
+import pendora_logo from "../public/pendora_logo.png"
+import img1 from "../public/hero-images/img1.webp"
+import img2 from "../public/hero-images/img2.webp"
+import img3 from "../public/hero-images/img3.webp"
+import img4 from "../public/hero-images/img4.webp"
+import img5 from "../public/hero-images/img5.webp"
+import img6 from "../public/hero-images/img6.webp"
 import aston from "../public/hero-images/aston.webp"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { HeroGridCard } from "@/components/HeroGridCard";
+import styles from '@/components/components.module.css';
 
 
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-start relative  bg-neutral-900">
+    <main className=" min-h-screen justify-start  p-16 text-center flex flex-col items-center gap-4 w-full  bg-black bg-dot-white/[0.2] relative" >
       <nav className="z-50 w-full h-max p-4 flex justify-between items-center bg-black bg-opacity-50 backdrop-blur-md sticky top-0">
         <div>
-          <Image src={vercel} width="100" height="100" atl="logo"/>
+          <Image src={pendora_logo} width="100" height="100" atl="logo"/>
         </div>
         <div className="flex gap-5 items-center">
-          <Link href="/" className="hover:text-gray-600 text-white">Features</Link>
-          <Link href="/" className="hover:text-gray-600 text-white">Pricing</Link>
-          <Link href="/" className="hover:text-gray-600 text-white">FAQs</Link>
+          <Link href="/" className="hover:text-neutral-300 text-white">Features</Link>
+          <Link href="/" className="hover:text-neutral-300 text-white">Pricing</Link>
+          <Link href="/" className="hover:text-neutral-300 text-white">FAQs</Link>
         </div>
         <div className="flex gap-5 items-center">
           <Link href="/"><Button variant="primary" className="rounded-3xl border hover:border-white bg-white hover:bg-black hover:text-white font-bold">Login</Button></Link>
-          <Link href="/"><Button variant="primary" className="rounded-3xl border border-transparent hover:border-white bg-green-400 text-black font-bold" >Create Account</Button></Link>
+          <Link href="/"><Button variant="primary" className="rounded-3xl border border-transparent hover:border-white bg-pendora-yellow text-neutral-900 font-bold" >Create Account</Button></Link>
         </div>
       </nav>
-      <section>
-        <div className="p-16 text-center flex flex-col items-center gap-4">
-          <h1 className="text-8xl font-normal tracking-tighter text-white px-24">The canvas is your oyster</h1>
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center  bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,white)]"></div>
+      <section className=" w-full flex flex-col items-center">
+        <div className="p-16 text-center flex flex-col items-center gap-4  h-[30rem] w-full relative ">
+          <h1 className="text-8xl font-font tracking-tighter  px-24  relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">The canvas is your oyster</h1>
           <h3 className="text-md px-72 font-light text-white">Generate your own images, edit and style them to create out of this world graphics all with the power of AI. Turn your imagination into reality</h3>
           <div>
-          <Link href="/"><Button variant="primary" className="rounded-3xl border border-transparent hover:border-white bg-yellow-200 text-black font-bold" >Try it Out</Button></Link>
+          <MButton borderRadius="4rem" duration={8000} className="rounded-3xl  bg-black text-white font-bold" >Try it Out</MButton>
           </div>
         </div>
-        <div className="flex justify-center w-full gap-4">
-          <div className="relative w-64 h-64">
-            <Image
-              src={grim}  
-              layout="fill"
-              objectFit="cover"
-              className="absolute inset-0 rounded-md"
-            />
-            <div className="absolute inset-0 flex items-end p-4">
-              <div className="bg-transparent border border-white backdrop-blur-md text-white rounded-md p-2">
-                The grim reaper in a cafe
-              </div>
-            </div>
+        <div className=" w-full overflow-x-hidden grid grid-flow-col grid-rows-1 gap-x-[2%]">
+          <div className={`gap-x-[4%] grid grid-flow-col grid-rows-1 ${styles.marquee} border border-white`}>
+            <HeroGridCard src={img1} prompt="Asian Princess"/>
+            <HeroGridCard src={img2} prompt="Asian Princess"/>
+            <HeroGridCard src={img3} prompt="Asian Princess"/>
+            <HeroGridCard src={img4} prompt="Asian Princess"/>
+            <HeroGridCard src={img5} prompt="Asian Princess"/>
+            <HeroGridCard src={img6} prompt="Asian Princess"/>
           </div>
-          <div className="relative w-64 h-64">
-            <Image
-              src={aston}  
-              layout="fill"
-              objectFit="cover"
-              className="absolute inset-0 rounded-md"
-            />
-            <div className="absolute inset-0 flex items-end p-4">
-              <div className="bg-transparent border border-white backdrop-blur-md text-white rounded-md p-2">
-                The new aston martin
-              </div>
-            </div>
+          <div className="gap-x-[4%] grid grid-flow-col border border-red-500">
+            <HeroGridCard src={img1} prompt="Asian Princess"/>
+            <HeroGridCard src={img2} prompt="Asian Princess"/>
+            <HeroGridCard src={img3} prompt="Asian Princess"/>
+            <HeroGridCard src={img4} prompt="Asian Princess"/>
+            <HeroGridCard src={img5} prompt="Asian Princess"/>
+            <HeroGridCard src={img6} prompt="Asian Princess"/>
           </div>
         </div>
       </section>
@@ -138,7 +137,7 @@ export default function Home() {
                       <li>✅Access to Community Prompts</li>
                     </ul>
                   </div>
-                  <Button variant="primary" className="w-full bg-green-400 text-black p-4 rounded-3xl hover:border-white hover:border ">Subscribe</Button>
+                  <Button variant="primary" className="w-full bg-pendora-yellow text-black p-4 rounded-3xl hover:border-white hover:border ">Subscribe</Button>
                 </div>
               </TabsContent>
               <TabsContent value="yearly" className="flex gap-10">
@@ -156,7 +155,7 @@ export default function Home() {
                         <li>✅Access to Community Prompts</li>
                       </ul>
                     </div>
-                    <Button variant="primary" className="w-full bg-green-400 text-black p-4 rounded-3xl hover:border-white hover:border ">Subscribe</Button>
+                    <Button variant="primary" className="w-full bg-pendora-yellow text-black p-4 rounded-3xl hover:border-white hover:border ">Subscribe</Button>
                   </div>
                   <div className="pricing_card flex flex-col gap-4 p-2">
                     <div className="p-4 border border-neutral-300 flex flex-col rounded-md items-start gap-4">
@@ -172,7 +171,7 @@ export default function Home() {
                         <li>✅Access to Community Prompts</li>
                       </ul>
                     </div>
-                    <Button variant="primary" className="w-full bg-green-400 text-black p-4 rounded-3xl hover:border-white hover:border ">Subscribe</Button>
+                    <Button variant="primary" className="w-full bg-pendora-yellow text-black p-4 rounded-3xl hover:border-white hover:border-4 ">Subscribe</Button>
                   </div>
               </TabsContent>
           </Tabs>
