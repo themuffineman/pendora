@@ -8,17 +8,19 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {Popover, PopoverContent, PopoverTrigger,} from "@/components/ui/popover"
 import ProjectCard from "@/components/ProjectCard";
 import {ResizableHandle, ResizablePanel, ResizablePanelGroup,} from "@/components/ui/resizable"
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+
   
 
 
 export default function dashboard() {
   
   return (
-    <main className="w-full h-screen flex flex-col bg-neutral-950 ">
+    <main className="w-full h-screen flex flex-col bg-neutral-950  relative">
 
         
 
-        <nav className="flex justify-between items-center border-gray-500 border-b h-16 p-2">
+        <nav className="flex justify-between items-center  border-gray-500 border-b h-[10%] p-2">
             
             <p className="text-white">Projects/Water Ways</p>
             
@@ -57,14 +59,15 @@ export default function dashboard() {
             
         </nav>
 
-        <ResizablePanelGroup direction="horizontal"  className="flex-1 flex justify-between items-center relative">
-            <ResizablePanel defaultSize={25} className=" border-r border-gray-500 relative bg-neutral-950 flex-1 h-full">
-                <button className="w-full flex justify-center items-center border-2 p-2 hover:bg-neutral-700 rounded-md border-white h-max text-white">New Canvas +</button>
-                <div className="flex flex-col gap-4 w-full ">
+        <ResizablePanelGroup direction="horizontal"  className=" h-[90%] flex justify-between items-center relative overflow-auto">
 
-                    <h3 className="text-md font-normal text-gray-300 center w-full h-max p-2">Generations</h3>
+            <ResizablePanel defaultSize={25} className=" border-r border-gray-500 relative bg-neutral-950 flex-1 h-full ">
+                <ScrollArea className="h-full w-full">
+                <div className="flex flex-col gap-4 w-full flex-1 ">
 
-                    <div className="grid grid-flow-row grid-cols-1 gap-4 w-full flex-1 overflow-auto">
+                    <h3 className="text-2xl font-normal text-gray-300 center w-full h-max p-2 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">Recent Projects</h3>
+
+                    {/* <div className="grid grid-flow-row grid-cols-1 gap-4 w-full flex-1 overflow-auto">
                         
 
                         <ProjectCard
@@ -85,8 +88,58 @@ export default function dashboard() {
                         />
 
                         
-                    </div>
+                    </div> */}
+                    <ScrollArea className="h-[50%] grid grid-col-1 grid-flow-row w-full">
+                        <ProjectCard
+                            src={aston}
+                            prompt={"Hello world"}
+                            selected={true}
+                        />
+                        <ProjectCard
+                            src={aston}
+                            prompt={"Hello world"}
+                            selected={false}
+                        />
+                        <ProjectCard
+                            src={aston}
+                            prompt={"Hello world"}
+                            selected={false}
+                        />
+                        <ProjectCard
+                            src={aston}
+                            prompt={"Hello world"}
+                            selected={false}
+                        />
+
+                        <ProjectCard
+                            src={aston}
+                            prompt={"Hello world"}
+                            selected={false}
+                        />
+
+                        <ProjectCard
+                            src={aston}
+                            prompt={"Hello world"}
+                            selected={false}
+                        />
+                        <ProjectCard
+                            src={aston}
+                            prompt={"Hello world"}
+                            selected={false}
+                        />
+                        <ProjectCard
+                            src={aston}
+                            prompt={"Hello world"}
+                            selected={false}
+                        />
+                        <ProjectCard
+                            src={aston}
+                            prompt={"Hello world"}
+                            selected={false}
+                        />
+                    </ScrollArea>
                 </div>
+                </ScrollArea>
             </ResizablePanel>
 
             <ResizableHandle withHandle />
@@ -104,7 +157,7 @@ export default function dashboard() {
 
             <ResizableHandle withHandle />
 
-            <ResizablePanel defaultSize={25} className="flex-1 p-4 relative flex flex-col items-center bg-neutral-950 border-l-gray-500 border-l overflow-y-scroll text-white">
+            <ResizablePanel defaultSize={25} className="flex-1 p-4 relative flex flex-col items-center bg-neutral-950 border-l-gray-500 border-l text-white">
                 
                     <section className="flex gap-4 items-center w-full ">
                         <div className="flex gap-2 items-center">
