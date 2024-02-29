@@ -8,7 +8,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {Popover, PopoverContent, PopoverTrigger,} from "@/components/ui/popover"
 import ProjectCard from "@/components/ProjectCard";
 import {ResizableHandle, ResizablePanel, ResizablePanelGroup,} from "@/components/ui/resizable"
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area" 
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, } from "@/components/ui/carousel"
+import { Textarea } from "@/components/ui/textarea"
+
 
   
 
@@ -22,19 +25,19 @@ export default function dashboard() {
 
         <nav className="flex justify-between items-center  border-gray-500 border-b h-[10%] p-2">
             
-            <p className="text-white">Projects/Water Ways</p>
+            <Button className="p-2 px-4 font-medium bg-pendora-yellow text-black rounded-md hover:bg-yellow-300">New Project</Button>
             
             <Tabs defaultValue="image" className="w-[50%] flex justify-center items-center">
-                <TabsList className="grid grid-cols-2 cent bg-neutral-950 w-[300px] mb-4  text-white">
-                <TabsTrigger value="image" className="bg-neutral-950" >Image</TabsTrigger>
-                <TabsTrigger value="video" className="bg-neutral-950">Video</TabsTrigger>
+                <TabsList className="grid grid-cols-2 my-auto bg-neutral-950 w-[300px] mb-4  text-white">
+                <TabsTrigger value="image" className="bg-neutral-800" >Image</TabsTrigger>
+                <TabsTrigger value="video" className="bg-neutral-800">Video</TabsTrigger>
                 </TabsList>
             </Tabs>
             
             <div className="flex gap-2 items-center">
 
-                <Select className="flex justify-center items-center">
-                    <SelectTrigger  className="w-40 border-none bg-neutral-950 text-white">
+                <Select className="flex justify-center items-center ">
+                    <SelectTrigger  className="w-40 border-none bg-neutral-800 text-white">
                         <SelectValue placeholder="Export" />
                     </SelectTrigger>
                     <SelectContent className="text-white bg-neutral-950">
@@ -65,30 +68,14 @@ export default function dashboard() {
                 <ScrollArea className="h-full w-full">
                 <div className="flex flex-col gap-4 w-full flex-1 ">
 
-                    <h3 className="text-2xl font-normal text-gray-300 center w-full h-max p-2 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">Recent Projects</h3>
+                    {/* <h3 className="text-2xl font-normal w-full h-max p-3 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-500 ">Recent Projects</h3> */}
+                    <Tabs defaultValue="recent" className="w-full flex justify-center items-center">
+                        <TabsList className="grid grid-cols-2 my-auto bg-neutral-950 w-[100%] mb-4  text-white">
+                            <TabsTrigger value="recent" className="bg-neutral-800 p-2">Recent Generations</TabsTrigger>
+                            <TabsTrigger value="community" className="bg-neutral-800 p-2" >From the Community</TabsTrigger>
+                        </TabsList>
+                    </Tabs>
 
-                    {/* <div className="grid grid-flow-row grid-cols-1 gap-4 w-full flex-1 overflow-auto">
-                        
-
-                        <ProjectCard
-                            src={aston}
-                            prompt="lorem ipsum lorem ipsum lorem ipsum"
-                        />
-
-                        <ProjectCard
-                            src={aston}
-                            prompt="lorem ipsum lorem ipsum lorem ipsum"
-                            selected={true}
-
-                        />
-
-                        <ProjectCard
-                            src={aston}
-                            prompt="lorem ipsum lorem ipsum lorem ipsum"
-                        />
-
-                        
-                    </div> */}
                     <ScrollArea className="h-[50%] grid grid-col-1 grid-flow-row w-full">
                         <ProjectCard
                             src={aston}
@@ -144,62 +131,74 @@ export default function dashboard() {
 
             <ResizableHandle withHandle />
 
-            <ResizablePanel defaultSize={50} className="flex-1 p-10 h-full flex flex-col justify-center items-center relative bg-black bg-dot-white/[0.2] rounded-md">
-                    <div className="max-w-[40rem] w-[20rem] max-h-[40rem]  h-[40rem] relative">
-                        <Image
-                            layout="fill"
-                            src={aston}
-                            objectFit="cover"
-                            className="w-full h-full rounded-md"
-                        />
-                    </div>
+            <ResizablePanel defaultSize={50} className="flex-1 p-10 h-full flex flex-col gap-4 justify-center items-center relative bg-black bg-dot-white/[0.2] rounded-md">
+
+                    <Carousel className="p-16">
+                        <CarouselContent className="max-w-[40rem] w-[20rem] max-h-[40rem]  h-[40rem] relative" >
+                            <CarouselItem className="max-w-[40rem] w-[20rem] max-h-[40rem]  h-[40rem] relative">
+                               
+                                    <Image
+                                        layout="fill"
+                                        src={aston}
+                                        objectFit="cover"
+                                        className="w-full h-full rounded-md"
+                                    />
+                               
+                            </CarouselItem>
+
+                            <CarouselItem className="max-w-[40rem] w-[20rem] max-h-[40rem]  h-[40rem] relative">
+                               
+                               <Image
+                                   layout="fill"
+                                   src={aston}
+                                   objectFit="cover"
+                                   className="w-full h-full rounded-md"
+                               />
+                          
+                       </CarouselItem>
+
+                        </CarouselContent>
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </Carousel>
             </ResizablePanel>
 
             <ResizableHandle withHandle />
 
-            <ResizablePanel defaultSize={25} className="flex-1 p-4 relative flex flex-col items-center bg-neutral-950 border-l-gray-500 border-l text-white">
-                
-                    <section className="flex gap-4 items-center w-full ">
-                        <div className="flex gap-2 items-center">
-                            <p className="bg-gray-500 text-md">Credits Left:</p>
-                            <p className="bg-gray-500 text-md">400/500</p>
-                        </div>
-                        <div className="flex gap-2 items center">
-                            <button className="rounded-md p-2 bg-green-300">Upgrade</button>
-                            <div className=" rounded-full size-10 text-sm border p-2">P</div>
-                        </div>
-                    </section>
+            <ResizablePanel defaultSize={25} className="flex-1 h-full relative flex flex-col items-center bg-neutral-950 border-l-gray-500 border-l text-white">
+                <ScrollArea className="h-full w-full">
+                   
                     <section className="flex flex-col gap-4 items-center w-full">
-                        <div className="self-start ">Edit Image</div>
-                        <div>
-                            <div className="flex flex-col gap-2 w-full">
+                        <div className="w-full">
+                            <div className="flex flex-col gap-2 w-full border-b border-neutral-500 p-2">
                                 <label>Aspect Ratio</label>
-                                <span className="flex gap-2">
-                                <input type="text" name="" id="" className="w-10 p-1" />
-                                <input type="text" name="" id="" className="w-10 p-1" />
+                                <span className="grid grid-cols-2 grid-flow-row gap-2">
+                                    <div className="p-2 rounded-md text-white text-center bg-neutral-700 cursor-pointer hover:bg-neutral-800 ">Landscape</div>
+                                    <div className="p-2 rounded-md text-white text-center bg-neutral-700 cursor-pointer hover:bg-neutral-800 ">Square</div>
+                                    <div className="p-2 rounded-md text-white text-center bg-neutral-700 cursor-pointer hover:bg-neutral-800 "> Portrait</div>
+                                    <div className="p-2 rounded-md text-white text-center bg-neutral-700 cursor-pointer hover:bg-neutral-800 "> Custom</div>
                                 </span>
                             </div>
-                            <div className="flex flex-col gap-2 w-full">
-                                <label>Remove Background</label>
-                                <span className="flex gap-2">
-                                <input type="checkbox" name="" id="" className="size-10 border" />
+                            
+                            <div className="flex flex-col gap-2 w-full border-b p-2 border-neutral-500">
+                                <label>Image Effects</label>
+                                <span className="grid grid-cols-2 grid-flow-row gap-2">
+                                    <div className="p-2 rounded-md text-white text-center bg-neutral-700 cursor-pointer hover:bg-neutral-800 ">Upscale Image</div>
+                                    <div className="p-2 rounded-md text-white text-center bg-neutral-700 cursor-pointer hover:bg-neutral-800 text-nowrap ">Remove Background</div>
                                 </span>
                             </div>
-                            <div className="flex flex-col gap-2 w-full">
-                                <label>Upscale Image</label>
-                                <span className="flex gap-2">
-                                <input type="checkbox" name="" id="" className="size-10 border" />
-                                </span>
-                            </div>
-                            <div className="flex flex-col gap-2">
+                           
+                            
+                            <div className="flex flex-col gap-2 p-2">
                                 <label>Prompt</label>
-                                <textarea name="" id="" cols="10" rows="5"></textarea>
+                                <Textarea name="" id="" className="text-black"/>
                                 <label>Negative Prompt</label>
-                                <textarea name="" id="" cols="10" rows="5"></textarea>
-                                <button className="p-2 bg-green-300 text-white rounded-md">Generate Image</button>
+                                <Textarea name="" id="" className="text-black"/>
+                                <button className="p-2 bg-pendora-yellow text-black rounded-md">Generate Image</button>
                             </div>
                         </div>
                     </section>
+                </ScrollArea>
             </ResizablePanel>
         </ResizablePanelGroup>
         

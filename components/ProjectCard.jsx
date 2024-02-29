@@ -12,7 +12,7 @@ const ProjectCard = ({src, prompt,selected}) => {
             className="rounded-md max-w-40 max-h-40 "
             />
         </div>
-        <div className="flex-1 flex justify-start items-center p-3">
+        <div className="flex-1 flex justify-center items-center p-3">
             <h4 className="text-white">{prompt}</h4>
         </div>
     </div>
