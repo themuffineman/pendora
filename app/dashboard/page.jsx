@@ -11,6 +11,8 @@ import {ResizableHandle, ResizablePanel, ResizablePanelGroup,} from "@/component
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area" 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, } from "@/components/ui/carousel"
 import { Textarea } from "@/components/ui/textarea"
+import { Card, CardContent } from "@/components/ui/card"
+
 
 
   
@@ -133,31 +135,65 @@ export default function dashboard() {
 
             <ResizablePanel defaultSize={50} className="flex-1 p-10 h-full flex flex-col gap-4 justify-center items-center relative bg-black bg-dot-white/[0.2] rounded-md">
 
-                    <Carousel className="p-16">
-                        <CarouselContent className="max-w-[40rem] w-[20rem] max-h-[40rem]  h-[40rem] relative" >
-                            <CarouselItem className="max-w-[40rem] w-[20rem] max-h-[40rem]  h-[40rem] relative">
-                               
-                                    <Image
-                                        layout="fill"
-                                        src={aston}
-                                        objectFit="cover"
-                                        className="w-full h-full rounded-md"
-                                    />
-                               
+                    <Carousel className="p-10 border w-[90%]">
+                        <CarouselContent className="">
+                           
+                            <CarouselItem className="">
+                                <Card>
+                                    <CardContent className="flex aspect-square items-center justify-center">
+                                        <img
+                                            
+                                            src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
+                                            objectFit="cover"
+                                            className="w-full h-full rounded-md"
+                                        />
+                                    </CardContent>
+                                </Card>
                             </CarouselItem>
 
-                            <CarouselItem className="max-w-[40rem] w-[20rem] max-h-[40rem]  h-[40rem] relative">
-                               
-                               <Image
-                                   layout="fill"
-                                   src={aston}
-                                   objectFit="cover"
-                                   className="w-full h-full rounded-md"
-                               />
-                          
-                       </CarouselItem>
+                            <CarouselItem className="">
+                                <Card>
+                                    <CardContent className="flex aspect-square items-center justify-center">
+                                        <img
+                                            
+                                            src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
+                                            objectFit="cover"
+                                            className="w-full h-full rounded-md"
+                                        />
+                                    </CardContent>
+                                </Card>
+                            </CarouselItem>
 
+                            <CarouselItem className="">
+                                <Card>
+                                    <CardContent className="flex aspect-square items-center justify-center">
+                                        <img
+                                            
+                                            src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
+                                            objectFit="cover"
+                                            className="w-full h-full rounded-md"
+                                        />
+                                    </CardContent>
+                                </Card>
+                            </CarouselItem>
+
+                            <CarouselItem className="">
+                                <Card>
+                                    <CardContent className="flex aspect-square items-center justify-center">
+                                        <img
+                                            
+                                            src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
+                                            objectFit="cover"
+                                            className="w-full h-full rounded-md"
+                                        />
+                                    </CardContent>
+                                </Card>
+                            </CarouselItem>
+
+                            
                         </CarouselContent>
+                          
+                       
                         <CarouselPrevious />
                         <CarouselNext />
                     </Carousel>
