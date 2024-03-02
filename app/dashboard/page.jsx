@@ -135,12 +135,25 @@ export default function dashboard() {
 
             <ResizablePanel defaultSize={50} className="flex-1 p-10 h-full flex flex-col gap-4 justify-center items-center relative bg-black bg-dot-white/[0.2] rounded-md">
 
-                    <Carousel className="p-10 border w-[90%]">
-                        <CarouselContent className="">
+                    <Carousel className="p-10 w-[90%]">
+                        <CarouselContent className="w-full">
                            
+                            <CarouselItem className="w-full">
+                                <Card className="w-full relative ">
+                                    <CardContent className="flex aspect-square items-center justify-center p-0">
+                                        <img
+                                            
+                                            src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
+                                            objectFit="cover"
+                                            className="w-full h-full rounded-md " 
+                                        />
+                                    </CardContent>
+                                </Card>
+                            </CarouselItem>
+
                             <CarouselItem className="">
                                 <Card>
-                                    <CardContent className="flex aspect-square items-center justify-center">
+                                    <CardContent className="flex aspect-square items-center justify-center p-0">
                                         <img
                                             
                                             src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
@@ -153,7 +166,7 @@ export default function dashboard() {
 
                             <CarouselItem className="">
                                 <Card>
-                                    <CardContent className="flex aspect-square items-center justify-center">
+                                    <CardContent className="flex aspect-square items-center justify-center p-0">
                                         <img
                                             
                                             src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
@@ -166,20 +179,7 @@ export default function dashboard() {
 
                             <CarouselItem className="">
                                 <Card>
-                                    <CardContent className="flex aspect-square items-center justify-center">
-                                        <img
-                                            
-                                            src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
-                                            objectFit="cover"
-                                            className="w-full h-full rounded-md"
-                                        />
-                                    </CardContent>
-                                </Card>
-                            </CarouselItem>
-
-                            <CarouselItem className="">
-                                <Card>
-                                    <CardContent className="flex aspect-square items-center justify-center">
+                                    <CardContent className="flex aspect-square items-center justify-center p-0">
                                         <img
                                             
                                             src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
