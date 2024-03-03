@@ -15,6 +15,8 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import CommunityCard from "@/components/CommunityCard";
+import LeftDash from '@/components/LeftDash'
+
 
 
 
@@ -69,7 +71,7 @@ export default function dashboard() {
 
         <ResizablePanelGroup direction="horizontal"  className=" h-[90%] flex justify-between items-center relative overflow-auto">
 
-            <ResizablePanel defaultSize={25} className=" border-r border-gray-500 relative bg-neutral-950 flex-1 h-full ">
+            {/* <ResizablePanel defaultSize={25} className=" border-r border-gray-500 relative bg-neutral-950 flex-1 h-full ">
                 <ScrollArea className="h-full w-full">
                 <div className="flex flex-col gap-4 w-full flex-1 ">
 
@@ -130,7 +132,7 @@ export default function dashboard() {
                             </div>
                         </TabsContent>
                         <TabsContent value="community" className="flex flex-col gap-4 items-center">
-                            <div className="w-full px-2 relative">
+                    <div className="w-full px-2 relative">
                                 <Input type="search" className="pl-10 text-white bg-neutral-950" placeholder="Search for Inspiration"/>
                                 <svg className="absolute top-1/2 -translate-y-1/2 left-4 fill-white" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
                             </div>
@@ -188,7 +190,9 @@ export default function dashboard() {
 
                 </div>
                 </ScrollArea>
-            </ResizablePanel>
+            </ResizablePanel> */}
+
+            <LeftDash/>
 
             <ResizableHandle withHandle />
 

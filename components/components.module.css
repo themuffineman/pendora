@@ -16,9 +16,15 @@
 }
 
 .comunitycard:hover div:nth-child(2){
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    
 }
 
 .comunitycard div:nth-child(2){
     display: none;
+}
+
+.leftgrid{
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr))
 }
