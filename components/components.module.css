@@ -14,3 +14,11 @@
 .vertical{
     aspect-ratio: 9/16;
 }
+
+.comunitycard:hover div:nth-child(2){
+    display: block;
+}
+
+.comunitycard div:nth-child(2){
+    display: none;
+}
