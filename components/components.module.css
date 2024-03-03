@@ -11,3 +11,6 @@
     animation: marquee 60s infinite linear;
 }
 
+.vertical{
+    aspect-ratio: 9/16;
+}

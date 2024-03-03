@@ -1,6 +1,7 @@
 
 import Image from "next/image";
 import aston from '../../public/hero-images/aston.webp';
+import grim from '../../public/hero-images/grim.png';
 import {Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue,} from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button";
@@ -27,7 +28,7 @@ export default function dashboard() {
 
         <nav className="flex justify-between items-center  border-gray-500 border-b h-[10%] p-2">
             
-            <Button className="p-2 px-4 font-medium bg-pendora-yellow text-black rounded-md hover:bg-yellow-300">New Project</Button>
+            <Button className="p-2 px-4 font-medium bg-pendora-yellow text-black rounded-md hover:bg-yellow-300">New Canvas</Button>
             
             <Tabs defaultValue="image" className="w-[50%] flex justify-center items-center">
                 <TabsList className="grid grid-cols-2 my-auto bg-neutral-950 w-[300px] mb-4  text-white">
@@ -70,63 +71,115 @@ export default function dashboard() {
                 <ScrollArea className="h-full w-full">
                 <div className="flex flex-col gap-4 w-full flex-1 ">
 
-                    {/* <h3 className="text-2xl font-normal w-full h-max p-3 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-500 ">Recent Projects</h3> */}
-                    <Tabs defaultValue="recent" className="w-full flex justify-center items-center">
+                    <Tabs defaultValue="recent" className="w-full flex flex-col justify-center items-center">
                         <TabsList className="grid grid-cols-2 my-auto bg-neutral-950 w-[100%] mb-4  text-white">
-                            <TabsTrigger value="recent" className="bg-neutral-800 p-2">Recent Generations</TabsTrigger>
-                            <TabsTrigger value="community" className="bg-neutral-800 p-2" >From the Community</TabsTrigger>
+                            <TabsTrigger value="recent" className="bg-neutral-800 p-2">Your Art</TabsTrigger>
+                            <TabsTrigger value="community" className="bg-neutral-800 p-2" >Community</TabsTrigger>
                         </TabsList>
+                        <TabsContent value="recent" >
+                            <div className="h-[50%] grid grid-cols-2 grid-flow-row justify-center place-items-center gap-5 w-full px-2 ">
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={true}
+                                />
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+                            </div>
+                        </TabsContent>
+                        <TabsContent value="community">
+                            <div className="h-[50%] grid grid-cols-2 grid-flow-row justify-center place-items-center gap-5 w-full px-2 ">
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={true}
+                                />
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+                                <ProjectCard
+                                    src={aston}
+                                    prompt={"Hello world"}
+                                    selected={false}
+                                />
+                            </div>
+                        </TabsContent>
                     </Tabs>
 
-                    <ScrollArea className="h-[50%] grid grid-col-1 grid-flow-row w-full">
-                        <ProjectCard
-                            src={aston}
-                            prompt={"Hello world"}
-                            selected={true}
-                        />
-                        <ProjectCard
-                            src={aston}
-                            prompt={"Hello world"}
-                            selected={false}
-                        />
-                        <ProjectCard
-                            src={aston}
-                            prompt={"Hello world"}
-                            selected={false}
-                        />
-                        <ProjectCard
-                            src={aston}
-                            prompt={"Hello world"}
-                            selected={false}
-                        />
-
-                        <ProjectCard
-                            src={aston}
-                            prompt={"Hello world"}
-                            selected={false}
-                        />
-
-                        <ProjectCard
-                            src={aston}
-                            prompt={"Hello world"}
-                            selected={false}
-                        />
-                        <ProjectCard
-                            src={aston}
-                            prompt={"Hello world"}
-                            selected={false}
-                        />
-                        <ProjectCard
-                            src={aston}
-                            prompt={"Hello world"}
-                            selected={false}
-                        />
-                        <ProjectCard
-                            src={aston}
-                            prompt={"Hello world"}
-                            selected={false}
-                        />
-                    </ScrollArea>
                 </div>
                 </ScrollArea>
             </ResizablePanel>
