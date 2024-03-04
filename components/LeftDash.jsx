@@ -19,7 +19,8 @@ const LeftDash = () => {
       const observer = new ResizeObserver(entries => {
         for (const entry of entries) {
           const width = entry.contentRect.width;
-          columns = calculateColumns(width);
+          console.log(width)
+          const columns = calculateColumns(width);
           setCols(columns)
         }
       });
@@ -32,26 +33,17 @@ const LeftDash = () => {
     }, []);
 
     const calculateColumns = (width) => {
-        let cols = 2;
-        if (width >= 640) {
-          cols = 3;
+        let cols = 1;
+        if (width < 470) {
+          cols = 2;
         }
-        if (width >= 1024) {
-          cols = 4;
-        }
-        if (width >= 1280) {
-          cols = 5;
-        }
-        if (width >= 1920) {
-          cols = 6;
-        }
-        return cols;
+        
       };
-
+  
 
   return (
     
-    <ResizablePanel  defaultSize={25} className=" border-r border-gray-500 relative bg-neutral-950 flex-1 h-full ">
+    <ResizablePanel  defaultSize={15} className=" border-r border-gray-500 relative bg-neutral-950 flex-1 h-full ">
         <ScrollArea className="h-full w-full">
             <div className="flex flex-col gap-4 w-full flex-1 ">
 

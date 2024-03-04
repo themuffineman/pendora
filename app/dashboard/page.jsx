@@ -1,4 +1,5 @@
-
+"use client"
+import React, {useState, useEffect, useRef} from "react";
 import Image from "next/image";
 import aston from '../../public/hero-images/aston.webp';
 import grim from '../../public/hero-images/grim.png';
@@ -15,7 +16,6 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import CommunityCard from "@/components/CommunityCard";
-import LeftDash from '@/components/LeftDash'
 
 
 
@@ -24,6 +24,19 @@ import LeftDash from '@/components/LeftDash'
 
 
 export default function dashboard() {
+
+    const [prompt, setPrompt] = useState('')
+
+    const createPrediction = async()=>{
+        const response = await fetch('/api/create-prediction', {body: JSON.stringify(prompt), method: "POST"})
+        console.log('hello')    
+    }
+
+    const updatePrompt = (e)=>{
+        setPrompt(e.target.value)
+        console.log(e.target.value)    
+
+    }
   
   return (
     <main className="w-full h-screen flex flex-col bg-neutral-950  relative">
@@ -71,7 +84,7 @@ export default function dashboard() {
 
         <ResizablePanelGroup direction="horizontal"  className=" h-[90%] flex justify-between items-center relative overflow-auto">
 
-            {/* <ResizablePanel defaultSize={25} className=" border-r border-gray-500 relative bg-neutral-950 flex-1 h-full ">
+            <ResizablePanel defaultSize={45} className=" border-r border-gray-500 relative bg-neutral-950 flex-1 h-full ">
                 <ScrollArea className="h-full w-full">
                 <div className="flex flex-col gap-4 w-full flex-1 ">
 
@@ -190,13 +203,11 @@ export default function dashboard() {
 
                 </div>
                 </ScrollArea>
-            </ResizablePanel> */}
-
-            <LeftDash/>
+            </ResizablePanel>
 
             <ResizableHandle withHandle />
 
-            <ResizablePanel defaultSize={50} className="flex-1 p-10 h-full flex flex-col gap-4 justify-center items-center relative bg-black bg-dot-white/[0.2] rounded-md">
+            <ResizablePanel defaultSize={33} className="flex-1 p-10 h-full flex flex-col gap-4 justify-center items-center relative bg-black bg-dot-white/[0.2] rounded-md">
 
                     <Carousel className="p-10 w-[90%]">
                         <CarouselContent className="w-full">
@@ -264,7 +275,7 @@ export default function dashboard() {
 
             <ResizableHandle withHandle />
 
-            <ResizablePanel defaultSize={25} className="flex-1 h-full relative flex flex-col items-center bg-neutral-950 border-l-gray-500 border-l text-white">
+            <ResizablePanel defaultSize={33} className="flex-1 h-full relative flex flex-col items-center bg-neutral-950 border-l-gray-500 border-l text-white">
                 <ScrollArea className="h-full w-full">
                    
                     <section className="flex flex-col gap-4 items-center w-full">
@@ -290,10 +301,10 @@ export default function dashboard() {
                             
                             <div className="flex flex-col gap-2 p-2">
                                 <label>Prompt</label>
-                                <Textarea name="" id="" className="text-black"/>
+                                <Textarea onChange={updatePrompt} name="" id="" className="text-black"/>
                                 <label>Negative Prompt</label>
                                 <Textarea name="" id="" className="text-black"/>
-                                <button className="p-2 bg-pendora-yellow text-black rounded-md">Generate Image</button>
+                                <button className="p-2 bg-pendora-yellow text-black rounded-md" onClick={createPrediction}>Generate Image</button>
                             </div>
                         </div>
                     </section>
