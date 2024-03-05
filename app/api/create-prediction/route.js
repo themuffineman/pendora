@@ -1,8 +1,7 @@
-import { NextResponse } from 'next/server'
 
-export const POST = async (req)=>{
+export const POST = async (req) =>{
 
-    const prompt = req.body
+    const prompt = await req.json()
     console.log(prompt)
 
     const requestOptions = {
@@ -31,7 +30,7 @@ export const POST = async (req)=>{
     const prediction = await fetch('https://api.replicate.com/v1/predictions', requestOptions)
     console.log(prediction)
 
-    return NextResponse.json({condition: "Prediction Created"}, {status: 200})
+    return Response.json({prediction}, {status: 201})
 
 
 }

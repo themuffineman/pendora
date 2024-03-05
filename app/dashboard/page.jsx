@@ -29,12 +29,12 @@ export default function dashboard() {
 
     const createPrediction = async()=>{
         const response = await fetch('/api/create-prediction', {body: JSON.stringify(prompt), method: "POST"})
-        console.log('hello')    
+        // console.log(await response.json())    
     }
 
     const updatePrompt = (e)=>{
         setPrompt(e.target.value)
-        console.log(e.target.value)    
+        // console.log(e.target.value)    
 
     }
   
@@ -218,8 +218,8 @@ export default function dashboard() {
                                         <img
                                             
                                             src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
-                                            objectFit="cover"
-                                            className="w-full h-full rounded-md " 
+                                            
+                                            className="w-full h-full rounded-md  object-cover "
                                         />
                                     </CardContent>
                                 </Card>
@@ -231,8 +231,8 @@ export default function dashboard() {
                                         <img
                                             
                                             src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
-                                            objectFit="cover"
-                                            className="w-full h-full rounded-md"
+                                            
+                                            className="w-full h-full rounded-md object-cover"
                                         />
                                     </CardContent>
                                 </Card>
@@ -244,8 +244,8 @@ export default function dashboard() {
                                         <img
                                             
                                             src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
-                                            objectFit="cover"
-                                            className="w-full h-full rounded-md"
+                                            
+                                            className="w-full h-full rounded-md object-cover"
                                         />
                                     </CardContent>
                                 </Card>
@@ -257,8 +257,8 @@ export default function dashboard() {
                                         <img
                                             
                                             src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
-                                            objectFit="cover"
-                                            className="w-full h-full rounded-md"
+                                            
+                                            className="w-full h-full rounded-md object-cover"
                                         />
                                     </CardContent>
                                 </Card>
