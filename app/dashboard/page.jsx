@@ -18,18 +18,13 @@ import { Card, CardContent } from "@/components/ui/card"
 import CommunityCard from "@/components/CommunityCard";
 
 
-
-
-  
-
-
 export default function dashboard() {
 
     const [prompt, setPrompt] = useState('')
 
     const createPrediction = async()=>{
         const response = await fetch('/api/create-prediction', {body: JSON.stringify(prompt), method: "POST"})
-        // console.log(await response.json())    
+        console.log(await response.json())    
     }
 
     const updatePrompt = (e)=>{
