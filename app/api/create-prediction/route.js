@@ -32,19 +32,13 @@ export const POST = async (req) =>{
     try {
       const prediction = await fetch('https://api.replicate.com/v1/predictions', requestOptions)
       const predictionJSON = await prediction.json()
-      concole.log('Here is the first creation: ', predictionJSON)
+      console.log('✔ Success on creating prediction')
+      const output = await fetch(`http://localhost:3000/api/get-prediction/`, {method:"POST", body: JSON.stringify(predictionJSON.id)})
   
-      if (prediction.statusText === 'Created'){
-        const output = await fetch(`/api/get-prediction/${predictionJSON.id}` )
-        console.log('Here is the result from getting a prediction route: ', output)
-        return Response.json({output}, {status: 200})
-      }
-      else{
-        throw new Error('Failed to create resource')
-      }
+      return Response.json({output}, {status: 201})
+      
       
     } catch (error) {
-      console.log("Error in the create prediction route: ", error)
       return Response.json({error}, {status: 500})
     }
 
