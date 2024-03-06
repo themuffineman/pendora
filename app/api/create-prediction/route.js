@@ -18,7 +18,7 @@ export const POST = async (req) =>{
           "height": 1024,
           "prompt": `${prompt}`,
           "scheduler": "KarrasDPM",
-          "num_outputs": 1,
+          "num_outputs": 2,
           "guidance_scale": 7.5,
           "apply_watermark": true,
           "negative_prompt": 'worst quality, low quality',
@@ -36,7 +36,7 @@ export const POST = async (req) =>{
       const output = await fetch(`http://localhost:3000/api/get-prediction/`, {method:"POST", body: JSON.stringify(predictionJSON.id)})
       const outputJSON = await output.json()
   
-      return Response.json({url: outputJSON}, {status: 201})  
+      return Response.json({urls: outputJSON}, {status: 201})  
       
       
     } catch (error) {

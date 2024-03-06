@@ -21,24 +21,22 @@ import CommunityCard from "@/components/CommunityCard";
 export default function dashboard() {
 
     const [prompt, setPrompt] = useState('')
+    const [urls, setUrls] = useState([])
 
     const createPrediction = async()=>{
         const response = await fetch('/api/create-prediction', {body: JSON.stringify(prompt), method: "POST"})
-        const url = await response.json()
-        console.log(url)    
+        const predictionUrls = await response.json()
+        console.log("Url Array:", predictionUrls.urls.output)
+        setUrls(predictionUrls.urls.output)    
     }
 
-    const updatePrompt = (e)=>{
-        setPrompt(e.target.value)
-        // console.log(e.target.value)    
-
+    const updatePrompt = (e)=> {
+        setPrompt(e.target.value)  
     }
   
   return (
     <main className="w-full h-screen flex flex-col bg-neutral-950  relative">
-
         
-
         <nav className="flex justify-between items-center  border-gray-500 border-b h-[10%] p-2">
             
             <Button className="p-2 px-4 font-medium bg-pendora-yellow text-black rounded-md hover:bg-yellow-300">New Canvas</Button>
@@ -77,6 +75,7 @@ export default function dashboard() {
             </div>
             
         </nav>
+        
 
         <ResizablePanelGroup direction="horizontal"  className=" h-[90%] flex justify-between items-center relative overflow-auto">
 
@@ -207,60 +206,20 @@ export default function dashboard() {
 
                     <Carousel className="p-10 w-[90%]">
                         <CarouselContent className="w-full">
-                           
-                            <CarouselItem className="w-full">
-                                <Card className="w-full relative ">
-                                    <CardContent className="flex aspect-square items-center justify-center p-0">
-                                        <img
-                                            
-                                            src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
-                                            
-                                            className="w-full h-full rounded-md  object-cover "
-                                        />
-                                    </CardContent>
-                                </Card>
-                            </CarouselItem>
-
-                            <CarouselItem className="">
-                                <Card>
-                                    <CardContent className="flex aspect-square items-center justify-center p-0">
-                                        <img
-                                            
-                                            src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
-                                            
-                                            className="w-full h-full rounded-md object-cover"
-                                        />
-                                    </CardContent>
-                                </Card>
-                            </CarouselItem>
-
-                            <CarouselItem className="">
-                                <Card>
-                                    <CardContent className="flex aspect-square items-center justify-center p-0">
-                                        <img
-                                            
-                                            src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
-                                            
-                                            className="w-full h-full rounded-md object-cover"
-                                        />
-                                    </CardContent>
-                                </Card>
-                            </CarouselItem>
-
-                            <CarouselItem className="">
-                                <Card>
-                                    <CardContent className="flex aspect-square items-center justify-center p-0">
-                                        <img
-                                            
-                                            src="https://www.indiewire.com/wp-content/uploads/2018/05/shutterstock_5886260dn.jpg"
-                                            
-                                            className="w-full h-full rounded-md object-cover"
-                                        />
-                                    </CardContent>
-                                </Card>
-                            </CarouselItem>
-
-                            
+                            {urls?.map((url)=>(
+                                <CarouselItem className="">
+                                    <Card>
+                                        <CardContent className="flex aspect-square items-center justify-center p-0">
+                                            <img
+                                                
+                                                src={url}
+                                                
+                                                className="w-full h-full rounded-md object-cover"
+                                            />
+                                        </CardContent>
+                                    </Card>
+                                </CarouselItem>
+                            ))}
                         </CarouselContent>
                           
                        
