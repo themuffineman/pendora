@@ -15,7 +15,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, } from "@/components/ui/carousel"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import CommunityCard from "@/components/CommunityCard";
+import Navigation from "@/components/Navigation";
 
 
 export default function dashboard() {
@@ -32,6 +32,10 @@ export default function dashboard() {
 
     const updatePrompt = (e)=> {
         setPrompt(e.target.value)  
+    }
+
+    const setAspectRatio = (aspect) =>{
+
     }
   
   return (
@@ -78,8 +82,8 @@ export default function dashboard() {
         
 
         <ResizablePanelGroup direction="horizontal"  className=" h-[90%] flex justify-between items-center relative overflow-auto">
-
-            <ResizablePanel defaultSize={45} className=" border-r border-gray-500 relative bg-neutral-950 flex-1 h-full ">
+            <Navigation/>
+            {/* <ResizablePanel defaultSize={45} className=" border-r border-gray-500 relative bg-neutral-950 flex-1 h-full ">
                 <ScrollArea className="h-full w-full">
                 <div className="flex flex-col gap-4 w-full flex-1 ">
 
@@ -198,9 +202,11 @@ export default function dashboard() {
 
                 </div>
                 </ScrollArea>
-            </ResizablePanel>
+            </ResizablePanel> */}
 
-            <ResizableHandle withHandle />
+
+
+            {/* <ResizableHandle withHandle /> */}
 
             <ResizablePanel defaultSize={33} className="flex-1 p-10 h-full flex flex-col gap-4 justify-center items-center relative bg-black bg-dot-white/[0.2] rounded-md">
 
