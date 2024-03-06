@@ -24,7 +24,8 @@ export default function dashboard() {
 
     const createPrediction = async()=>{
         const response = await fetch('/api/create-prediction', {body: JSON.stringify(prompt), method: "POST"})
-        console.log(await response.json())    
+        const url = await response.json()
+        console.log(url)    
     }
 
     const updatePrompt = (e)=>{

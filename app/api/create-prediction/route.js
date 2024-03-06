@@ -34,8 +34,9 @@ export const POST = async (req) =>{
       const predictionJSON = await prediction.json()
       console.log('✔ Success on creating prediction')
       const output = await fetch(`http://localhost:3000/api/get-prediction/`, {method:"POST", body: JSON.stringify(predictionJSON.id)})
+      const outputJSON = await output.json()
   
-      return Response.json({output}, {status: 201})
+      return Response.json({url: outputJSON}, {status: 201})  
       
       
     } catch (error) {
