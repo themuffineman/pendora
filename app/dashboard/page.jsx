@@ -1,10 +1,26 @@
+"use client"
 import { Textarea } from "@/components/ui/textarea"
+import {useState} from 'react'
+import config from '../../config';
+import ImagesNumber from "@/components/ImagesNumber";
+
 
 
 const Page = ()=>{
+    const [imagesNumber, setImagesNumber] = useState(1)
     return (
         <section className="flex flex-col gap-4 items-center w-full">
             <div className="w-full">
+
+                <div className="flex flex-col gap-2 w-full border-b border-neutral-500 p-2">
+                    <label>Number of Images</label>
+                    <span className="grid grid-cols-2 grid-flow-row gap-2">
+                        {config.maxImagesPerUser.map((num)=>(
+                            <ImagesNumber key={num} number={num} imagesNumber={imagesNumber} setImagesNumber={setImagesNumber}/>
+                        ))}
+                    </span>
+                </div>
+
                 <div className="flex flex-col gap-2 w-full border-b border-neutral-500 p-2">
                     <label>Aspect Ratio</label>
                     <span className="grid grid-cols-2 grid-flow-row gap-2">
