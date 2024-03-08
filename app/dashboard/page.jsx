@@ -12,13 +12,13 @@ const Page = ()=>{
         <section className="flex flex-col gap-4 items-center w-full">
             <div className="w-full">
 
-                <div className="flex flex-col gap-2 w-full border-b border-neutral-500 p-2">
-                    <label>Number of Images</label>
-                    <span className="grid grid-cols-2 grid-flow-row gap-2">
+                <div className="flex flex-col gap-4 w-full border-b border-neutral-500 p-2">
+                    <label className="text-white text-lg tracking-tighter font-medium">Number of images</label>
+                    <div className="flex justify-start gap-3 items-center">
                         {config.maxImagesPerUser.map((num)=>(
                             <ImagesNumber key={num} number={num} imagesNumber={imagesNumber} setImagesNumber={setImagesNumber}/>
                         ))}
-                    </span>
+                    </div>
                 </div>
 
                 <div className="flex flex-col gap-2 w-full border-b border-neutral-500 p-2">
