@@ -4,6 +4,7 @@ import {useState} from 'react'
 import config from '../../config';
 import ImagesNumber from "@/components/ImagesNumber";
 import AspectRatio from "@/components/AspectRatio";
+import CustomAspect from "@/components/CustomAspect";
 
 
 
@@ -41,11 +42,12 @@ const Page = ()=>{
                     <label className="text-white text-lg tracking-tighter font-medium">Aspect Ratio</label>
                     <div className="grid grid-cols-2 grid-flow-row gap-2">
                         {config.aspect_ratios.map((aspect)=>(<AspectRatio aspectToDisplay={aspect.title} changeAspectRatio={changeAspectRatio} selectedAspectRatio={aspectRatio.title} />))}
+                        {/* <CustomAspect/> */}
                     </div>
                 </div>
                 
                 <div className="flex flex-col gap-2 w-full border-b p-2 border-neutral-500">
-                    <label>Image Effects</label>
+                    <label className="text-white text-lg tracking-tighter font-medium">Upscale Image</label>
                     <span className="grid grid-cols-2 grid-flow-row gap-2">
                         <div className="p-2 rounded-md text-white text-center bg-neutral-700 cursor-pointer hover:bg-neutral-800 ">Upscale Image</div>
                         <div className="p-2 rounded-md text-white text-center bg-neutral-700 cursor-pointer hover:bg-neutral-800 text-nowrap ">Remove Background</div>
