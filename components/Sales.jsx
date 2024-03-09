@@ -4,17 +4,17 @@ import img1 from '../public/hero-images/img1.webp'
 
 const Sales = () => {
   return (
-      <div className='flex w-full p-4 h-max justify-between'>
-        <div className='flex gap-1'>
-            <div className='size-5'>
-                <Image src={img1} className='object-fit max-w-full w-full'/>
+      <div className='flex w-full justify-between items-center hover:bg-neutral-900 rounded-md p-2'>
+        <div className='flex gap-2 items-center'>
+            <div className='size-10'>
+                <Image src={img1} className='object-fit w-full h-full rounded-sm'/>
             </div>
-            <div className='text-white text-lg tracking-tight'>
+            <div className='text-white font-semibold text-lg tracking-tight'>
                 The Mona Lisa
             </div>
         </div>
-        <div className='text-xl tracking-tight text-right'>
-            +23.50
+        <div className='text-sm tracking-tight text-right text-gray-300'>
+            remixes: <span className='font-bold text-white'>69</span>
         </div>
     </div>
   )

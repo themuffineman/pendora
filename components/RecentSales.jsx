@@ -1,19 +1,37 @@
 import React from 'react'
 import Sales from './Sales'
+import { ScrollArea } from './ui/scroll-area'
 
 const RecentSales = () => {
   return (
-    <div className='w-max p-4 h-max flex flex-col gap-4'>
-      <div className='flex flex-col w-max h-max p-2 text-white text-md'>
-        <div>Recent Sales</div>
-        <div>You made 264 sales this month</div>
+    <div className='w-full p-4 h-max flex flex-col gap-4'>
+      <div className='w-full p-2 font-bold text-white text-left text-4xl tracking-tighter '>
+        Most Remixed Art
       </div>
-      <div className='grid grid-cols-1 grid-flow-row justify-center content-center'>
+      <ScrollArea className="h-[20rem] p-4 ring-1 ring-neutral-900 rounded-sm bg-black flex justify-center" >
+        <div className='grid grid-cols-1 grid-flow-row gap-4 justify-items-center content-center w-[80%]'>
           <Sales/>
           <Sales/>
           <Sales/>
           <Sales/>
-      </div>
+          <Sales/>
+          <Sales/>
+          <Sales/>
+          <Sales/>
+          <Sales/>
+          <Sales/>
+          <Sales/>
+          <Sales/>
+          <Sales/>
+          <Sales/>
+          <Sales/>
+          <Sales/>
+          <Sales/>
+          <Sales/>
+          <Sales/>
+          <Sales/>
+        </div>
+      </ScrollArea>
     </div>
   )
 }
