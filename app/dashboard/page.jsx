@@ -12,6 +12,8 @@ import ImageUpscale from "@/components/ImageUpscale";
 const Page = ()=>{
     const [imagesNumber, setImagesNumber] = useState(1)
     const [aspectRatio, setAspectRatio] = useState(config.aspect_ratios[2])
+    const [hdr, setHdr] = useState(50)
+    const [upscaleIntensity, setUpscaleIntensity] = useState(50)
 
 
     const changeAspectRatio = (aspect)=>{
@@ -49,7 +51,7 @@ const Page = ()=>{
                 
                 <div className="flex flex-col gap-2 w-full border-b p-2 border-neutral-500">
                     <label className="text-white text-lg tracking-tighter font-medium">Upscale Image</label>
-                    <ImageUpscale/>
+                    <ImageUpscale hdr={hdr} setHdr={setHdr} upscaleIntensity={upscaleIntensity} setUpscaleIntensity={setUpscaleIntensity}/>
                 </div>
                 
                 
