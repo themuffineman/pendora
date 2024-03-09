@@ -63,7 +63,7 @@ const Page = ()=>{
                     <textarea rows="5" cols="43" name="prompt" id="prompt" className="text-white bg-black rounded-md focus:outline-pendora-yellow outline-1 p-2"/>
                     <div className="flex w-full justify-between items-center">
                         <label htmlFor="negative prompt" className="text-white text-lg tracking-tighter font-medium">Negative Prompt</label>
-                        <Switch id="negative prompt" checked={isNegPrompt} onClick={()=> setIsNegPrompt(prev => !prev)} className=" " />
+                        <Switch id="negative prompt" checked={isNegPrompt} onClick={()=> setIsNegPrompt(prev => !prev)} />
                     </div>
                     <textarea rows="5" cols="43" name="negative prompt" id="negative prompt" className={`text-white ${!isNegPrompt? 'hidden': 'block'} bg-black rounded-md focus:outline-pendora-yellow outline-1 p-2`}/>
                     <button className="focus:outline-white outline-1 p-2 mt-4 bg-pendora-yellow text-black rounded-md font-semibold hover:bg-black hover:text-white hover:ring-pendora-yellow hover:ring-2" >Generate Image</button>

@@ -1,26 +1,29 @@
 import ProjectCard from '../../../components/ProjectCard'
 // import Input from '../../../components/ui/Input'
 import img1 from '../../../public/hero-images/img1.webp'
+import img2 from '../../../public/hero-images/img2.webp'
+import img3 from '../../../public/hero-images/img3.webp'
+import styles from '../../../components/components.module.css'
 
 const Page = () => {
   return (
-    <section className='flex flex-col gap-2 items-center p-2 overflow-auto w-full h-full '>
-        <div className='m-auto w-max h-max p-2'>
-            <input type='search' className="w-10 p-2 bg-white text-black "/>
+    <section className='flex flex-col gap-2 items-start overflow-auto w-full h-full pb-2 relative '>
+        <div className='w-full flex items-center justify-end sticky top-0 left-0 bg-neutral-950 p-4  '>
+          <svg className="fill-white bg-black rounded-sm p-1 hover:fill-black hover:bg-white inline size-8 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" ><path d="M120-120v-200h80v120h120v80H120Zm520 0v-80h120v-120h80v200H640ZM120-640v-200h200v80H200v120h-80Zm640 0v-120H640v-80h200v200h-80Z"/></svg>
         </div>
-        <div className='grid grid-2 gap-2 grid-flow-row justify-center content-center'>
+        <div className={`${styles.feedgrid} w-full`}>
             <ProjectCard src={img1}/>
             <ProjectCard src={img1}/>
             <ProjectCard src={img1}/>
             <ProjectCard src={img1}/>
-            <ProjectCard src={img1}/>
-            <ProjectCard src={img1}/>
-            <ProjectCard src={img1}/>
-            <ProjectCard src={img1}/>
-            <ProjectCard src={img1}/>
-            <ProjectCard src={img1}/>
-            <ProjectCard src={img1}/>
-            <ProjectCard src={img1}/>
+            <ProjectCard src={img2}/>
+            <ProjectCard src={img2}/>
+            <ProjectCard src={img2}/>
+            <ProjectCard src={img2}/>
+            <ProjectCard src={img3}/>
+            <ProjectCard src={img3}/>
+            <ProjectCard src={img3}/>
+            <ProjectCard src={img3}/>
         </div>
     </section>
   )
