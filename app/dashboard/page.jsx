@@ -6,14 +6,17 @@ import ImagesNumber from "@/components/ImagesNumber";
 import AspectRatio from "@/components/AspectRatio";
 import CustomAspect from "@/components/CustomAspect";
 import ImageUpscale from "@/components/ImageUpscale";
+import { Switch } from "@/components/ui/switch";
 
 
 
 const Page = ()=>{
+
     const [imagesNumber, setImagesNumber] = useState(1)
     const [aspectRatio, setAspectRatio] = useState(config.aspect_ratios[2])
     const [hdr, setHdr] = useState(50)
     const [upscaleIntensity, setUpscaleIntensity] = useState(50)
+    const [isNegPrompt, setIsNegPrompt] = useState(false)
 
 
     const changeAspectRatio = (aspect)=>{
@@ -56,11 +59,14 @@ const Page = ()=>{
                 
                 
                 <div className="flex flex-col gap-2 p-2">
-                    <label>Prompt</label>
-                    <Textarea name="" id="" className="text-black"/>
-                    <label>Negative Prompt</label>
-                    <Textarea name="" id="" className="text-black"/>
-                    <button className="p-2 bg-pendora-yellow text-black rounded-md" >Generate Image</button>
+                    <label htmlFor="prompt" className="text-white text-lg tracking-tighter font-medium">Prompt</label>
+                    <textarea rows="5" cols="43" name="prompt" id="prompt" className="text-white bg-black rounded-md focus:outline-pendora-yellow outline-1 p-2"/>
+                    <div className="flex w-full justify-between items-center">
+                        <label htmlFor="negative prompt" className="text-white text-lg tracking-tighter font-medium">Negative Prompt</label>
+                        <Switch id="negative prompt" checked={isNegPrompt} onClick={()=> setIsNegPrompt(prev => !prev)} className=" " />
+                    </div>
+                    <textarea rows="5" cols="43" name="negative prompt" id="negative prompt" className={`text-white ${!isNegPrompt? 'hidden': 'block'} bg-black rounded-md focus:outline-pendora-yellow outline-1 p-2`}/>
+                    <button className="focus:outline-white outline-1 p-2 mt-4 bg-pendora-yellow text-black rounded-md font-semibold hover:bg-black hover:text-white hover:ring-pendora-yellow hover:ring-2" >Generate Image</button>
                 </div>
 
             </div>
