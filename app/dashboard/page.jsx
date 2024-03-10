@@ -13,7 +13,7 @@ import { Switch } from "@/components/ui/switch";
 const Page = ()=>{
 
     const [imagesNumber, setImagesNumber] = useState(1)
-    const [aspectRatio, setAspectRatio] = useState(config.aspect_ratios[2])
+    const [aspectRatio, setAspectRatio] = useState(config.aspect_ratios[1])
     const [hdr, setHdr] = useState(50)
     const [upscaleIntensity, setUpscaleIntensity] = useState(50)
     const [isNegPrompt, setIsNegPrompt] = useState(false)
@@ -24,11 +24,11 @@ const Page = ()=>{
             case "square":
                 setAspectRatio(config.aspect_ratios[0])
                 break;
-            case "landscape":
-                setAspectRatio(config.aspect_ratios[1])
-                break;
+            // case "landscape":
+            //     setAspectRatio(config.aspect_ratios[1])
+            //     break;
             case "portrait":
-                setAspectRatio(config.aspect_ratios[2])
+                setAspectRatio(config.aspect_ratios[1])
         }
     }
     return (

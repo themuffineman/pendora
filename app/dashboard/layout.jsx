@@ -13,13 +13,13 @@ import {ResizableHandle, ResizablePanel, ResizablePanelGroup,} from "@/component
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area" 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, } from "@/components/ui/carousel"
 import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent } from "@/components/ui/card"
 import Navigation from "@/components/Navigation";
+import ImageCarousel from "@/components/ImageCarousel";
 
 
 const layout = ({children}) => {
 
-    const urls = []
+    const urls = [aston, grim, aston, grim, aston, grim]
 
     // const [prompt, setPrompt] = useState('')
     // const [urls, setUrls] = useState([])
@@ -85,7 +85,7 @@ const layout = ({children}) => {
         <ResizablePanelGroup direction="horizontal"  className=" h-[90%] flex justify-between items-center relative overflow-auto">
             <Navigation/>
 
-            <ResizablePanel defaultSize={20} className="flex-1 h-full relative flex flex-col items-center bg-neutral-950 border-l-gray-500 border-l text-white">
+            <ResizablePanel defaultSize={40} className="flex-1 h-full relative flex flex-col items-center bg-neutral-950 border-l-gray-500 border-l text-white">
                 <ScrollArea className="h-full w-full">
                     {children}
                 </ScrollArea>
@@ -93,27 +93,15 @@ const layout = ({children}) => {
 
             <ResizableHandle withHandle/>
 
-            <ResizablePanel defaultSize={33} className="flex-1 p-10 h-full flex flex-col gap-4 justify-center items-center relative bg-black bg-dot-white/[0.2] rounded-md">
+            <ResizablePanel defaultSize={50} className="flex-1 p-10 h-full flex flex-col gap-4 justify-center items-center relative bg-black bg-dot-white/[0.2] rounded-md">
 
                     <Carousel className="p-10 w-[90%]">
                         <CarouselContent className="w-full">
                             {urls?.map((url)=>(
-                                <CarouselItem className="">
-                                    <Card>
-                                        <CardContent className="flex aspect-square items-center justify-center p-0">
-                                            <img
-                                                
-                                                src={url}
-                                                
-                                                className="w-full h-full rounded-md object-cover"
-                                            />
-                                        </CardContent>
-                                    </Card>
-                                </CarouselItem>
+                                <ImageCarousel src={url}/>
                             ))}
                         </CarouselContent>
-                          
-                       
+        
                         <CarouselPrevious />
                         <CarouselNext />
                     </Carousel>
