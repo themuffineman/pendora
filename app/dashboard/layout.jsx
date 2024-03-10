@@ -3,18 +3,11 @@ import React, {useState, useEffect, useRef} from "react";
 import Image from "next/image";
 import aston from '../../public/hero-images/aston.webp';
 import grim from '../../public/hero-images/grim.png';
-import { Input } from "@/components/ui/input"
-import {Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue,} from "@/components/ui/select"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import {Popover, PopoverContent, PopoverTrigger,} from "@/components/ui/popover"
-import ProjectCard from "@/components/ProjectCard";
 import {ResizableHandle, ResizablePanel, ResizablePanelGroup, } from "@/components/ui/resizable"
 import {getPanelElement} from "react-resizable-panels"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area" 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, } from "@/components/ui/carousel"
-import { Textarea } from "@/components/ui/textarea"
 import Navigation from "@/components/Navigation";
 import ImageCarousel from "@/components/ImageCarousel";
 import ActionBtn from "@/components/ActionBtn";
@@ -23,9 +16,21 @@ import ActionBtn from "@/components/ActionBtn";
 const layout = ({children}) => {
 
     const urls = [aston, grim, aston, grim, aston, grim]
-    const leftPanelRef = useRef()
-    const rightPanelRef = useRef()
-    console.log(rightPanelRef.current)
+    const panelRefs = useRef()
+
+    useEffect(() => {
+        const leftPanelElement = getPanelElement("left-panel");
+        const rightPanelElement = getPanelElement("right-panel");
+        console.log(rightPanelElement.getId())
+        
+    
+        // If you want to, you can store them in a ref to pass around
+        panelRefs.current = {
+          leftPanelElement,
+          rightPanelElement,
+        };
+      }, []);
+    
     
     
     // const [prompt, setPrompt] = useState('')
@@ -69,7 +74,7 @@ const layout = ({children}) => {
         <ResizablePanelGroup direction="horizontal"  className=" h-[90%] flex justify-between items-center relative overflow-auto">
             <Navigation/>
 
-            <ResizablePanel ref={leftPanelRef} id="left-panel" defaultSize={40} collapsible={true} collapsedSize={0} maxSize={100} minSize={40} className="flex-1 h-full relative flex flex-col items-center bg-neutral-950 border-l-gray-500 border-l text-white">
+            <ResizablePanel id="left-panel" defaultSize={40} collapsible={true} collapsedSize={0} maxSize={100} minSize={40} className="flex-1 h-full relative flex flex-col items-center bg-neutral-950 border-l-gray-500 border-l text-white">
                 <ScrollArea className="h-full w-full">
                     {children}
                 </ScrollArea>
@@ -77,7 +82,7 @@ const layout = ({children}) => {
 
             <ResizableHandle withHandle/>
 
-            <ResizablePanel ref={rightPanelRef} id="right-panel" defaultSize={50} collapsible={true} collapsedSize={0} maxSize={100} minSize={50} className="flex-1 p-10 h-full flex flex-col gap-4 justify-center items-center relative bg-black bg-dot-white/[0.2] rounded-md">
+            <ResizablePanel id="right-panel" defaultSize={50} collapsible={true} collapsedSize={0} maxSize={100} minSize={50} className="flex-1 p-10 h-full flex flex-col gap-4 justify-center items-center relative bg-black bg-dot-white/[0.2] rounded-md">
                     <Carousel className="p-10 w-[90%]">
                         <CarouselContent className="w-full">
                             {urls?.map((url)=>(
