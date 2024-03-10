@@ -7,6 +7,7 @@ import AspectRatio from "@/components/AspectRatio";
 import CustomAspect from "@/components/CustomAspect";
 import ImageUpscale from "@/components/ImageUpscale";
 import { Switch } from "@/components/ui/switch";
+import ActionBtn from "@/components/ActionBtn";
 
 
 
@@ -66,7 +67,7 @@ const Page = ()=>{
                         <Switch id="negative prompt" checked={isNegPrompt} onClick={()=> setIsNegPrompt(prev => !prev)} />
                     </div>
                     <textarea rows="5" cols="43" name="negative prompt" id="negative prompt" className={`text-white ${!isNegPrompt? 'hidden': 'block'} bg-black rounded-md focus:outline-pendora-yellow outline-1 p-2`}/>
-                    <button className="focus:outline-white outline-1 p-2 mt-4 bg-pendora-yellow text-black rounded-md font-semibold hover:bg-black hover:text-white hover:ring-pendora-yellow hover:ring-2" >Generate Image</button>
+                    <ActionBtn className="mt-4" >Generate Image</ActionBtn>
                 </div>
 
             </div>
