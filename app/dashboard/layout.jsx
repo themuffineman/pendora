@@ -16,23 +16,22 @@ import { usePathname } from 'next/navigation'
 
 const layout = ({children}) => {
     const pathName = usePathname()
-    console.log('we are now at', pathName)
 
     const urls = [aston, grim, aston, grim, aston, grim]
     const panelRefs = useRef()
 
-    useEffect(() => {
-        const leftPanelElement = getPanelElement("left-panel");
-        const rightPanelElement = getPanelElement("right-panel");
-        // console.log(rightPanelElement.gSizegit add .Id())
+    // useEffect(() => {
+    //     const leftPanelElement = getPanelElement("left-panel");
+    //     const rightPanelElement = getPanelElement("right-panel");
+    //     // console.log(rightPanelElement.gSizegit add .Id())
         
     
-        // If you want to, you can store them in a ref to pass around
-        panelRefs.current = {
-          leftPanelElement,
-          rightPanelElement,
-        };
-    }, []);
+    //     // If you want to, you can store them in a ref to pass around
+    //     panelRefs.current = {
+    //       leftPanelElement,
+    //       rightPanelElement,
+    //     };
+    // }, []);
     
     
     
@@ -58,10 +57,6 @@ const layout = ({children}) => {
     <main className="w-full h-screen flex flex-col bg-neutral-950  relative">
         
         <nav className="flex justify-end items-center  border-gray-500 border-b h-[10%] p-2">
-            
-            
-           
-            
             <div className="flex gap-2 items-center">
                 <Avatar className="bg-black text-white font-semibold uppercase">
                     <AvatarImage src={aston} />
@@ -69,23 +64,22 @@ const layout = ({children}) => {
                 </Avatar>
 
                 <ActionBtn>Sign Out</ActionBtn>
-            </div>
-            
+            </div>    
         </nav>
         
 
-        <ResizablePanelGroup direction="horizontal"  className=" h-[90%] flex justify-between items-center relative overflow-auto">
+        <div   className=" h-[90%] flex justify-between items-center relative overflow-auto">
             <Navigation currentUrl={pathName}/>
 
-            <ResizablePanel id="left-panel" defaultSize={40} collapsible={true} collapsedSize={0} maxSize={100} minSize={40} className="flex-1 h-full relative flex flex-col items-center bg-neutral-950 border-l-gray-500 border-l text-white">
+            <div className="flex-1 h-full relative flex flex-col items-center bg-neutral-950 border-l-gray-500 border-l text-white">
                 <ScrollArea className="h-full w-full">
                     {children}
                 </ScrollArea>
-            </ResizablePanel>
+            </div>
 
-            <ResizableHandle withHandle/>
+            {/* <ResizableHandle withHandle/> */}
 
-            <ResizablePanel id="right-panel" defaultSize={60} collapsible={true} collapsedSize={0} maxSize={100} minSize={50} className="flex-1 p-10 h-full flex flex-col gap-4 justify-center items-center relative bg-black bg-dot-white/[0.2] rounded-md">
+            <div className="flex-1 p-10 h-full flex flex-col gap-4 justify-center items-center relative bg-black bg-dot-white/[0.2] rounded-md">
                     <Carousel className="p-10 w-[90%]">
                         <CarouselContent className="w-full">
                             {urls?.map((url)=>(
@@ -95,12 +89,9 @@ const layout = ({children}) => {
                         <CarouselPrevious />
                         <CarouselNext />
                     </Carousel>
-            </ResizablePanel>
+            </div>
 
-           
-
-            
-        </ResizablePanelGroup>
+        </div>
         
     </main>
   )
