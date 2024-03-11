@@ -8,7 +8,7 @@ const CarouselSection = ({urls}) => {
         <Carousel className="p-10 w-[90%]">
             <CarouselContent className="w-full">
                 {urls?.map((url)=>(
-                    <ImageCarousel src={url}/>
+                    <ImageCarousel key={url} src={url}/>
                 ))}
             </CarouselContent>
             <CarouselPrevious />

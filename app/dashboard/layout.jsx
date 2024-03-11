@@ -1,11 +1,9 @@
-
 import aston from '../../public/hero-images/aston.webp';
 import grim from '../../public/hero-images/grim.png';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area" 
 import Navigation from "@/components/Navigation";
 import ActionBtn from "@/components/ActionBtn";
-import { usePathname } from 'next/navigation'
 import CarouselSection from '@/components/CarouselSection';
 
 

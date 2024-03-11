@@ -1,6 +1,9 @@
+"use client"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
-const Navigation = ({currentUrl})=>{
+const Navigation = ()=>{
+    const currentUrl = usePathname()
     return (
         <section className='w-28 h-full flex flex-col items-center justify-evenly relative'>
             <Link href={'/dashboard'} className={`cursor-pointer p-2 flex flex-col items-center gap-2 hover:bg-neutral-900 text-neutral-400 text-sm font-semibold w-full ${currentUrl === '/dashboard'? ' bg-neutral-900 border-r-4 border-pendora-yellow' : 'bg-neutral-950'}`}>
