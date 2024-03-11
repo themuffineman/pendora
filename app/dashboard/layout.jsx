@@ -5,6 +5,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import Navigation from "@/components/Navigation";
 import ActionBtn from "@/components/ActionBtn";
 import CarouselSection from '@/components/CarouselSection';
+import Fullscreen from '@/components/Fullscreen';
 
 
 const layout = ({children}) => {
@@ -23,6 +24,7 @@ const layout = ({children}) => {
         <div className=" h-[90%] flex justify-between items-center relative overflow-auto">
             <Navigation/>
             <div className="flex-1 h-full relative flex flex-col items-center bg-neutral-950 border-l-gray-500 border-l text-white">
+                <Fullscreen/>
                 <ScrollArea className="h-full w-full">
                     {children}
                 </ScrollArea>
