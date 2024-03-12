@@ -42,11 +42,24 @@
     }
 }
 
+@keyframes dialog_rise {
+    from{
+        transform: translateY(50%);
+    }
+    to{
+        transform: translateY(-50%);
+    }
+}
+
 .toast{
     animation: toast_rise .5s ease;
     animation-fill-mode: forwards;
 }
 
+.dialog{
+    animation: toast_rise .5s ease;
+    animation-fill-mode: forwards;
+}
 
 
 

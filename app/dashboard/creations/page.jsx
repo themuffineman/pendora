@@ -20,18 +20,18 @@ const Page = () => {
   return (
     <section className='flex flex-col gap-2 items-center p-2 overflow-auto w-full h-full relative '>
         <div className={`${styles.feedgrid} w-full`}>
-            <ProjectCard src={img1} showToast={showToast}/>
-            <ProjectCard src={img1} showToast={showToast}/>
-            <ProjectCard src={img1} showToast={showToast}/>
-            <ProjectCard src={img1} showToast={showToast}/>
-            <ProjectCard src={img2} showToast={showToast}/>
-            <ProjectCard src={img2} showToast={showToast}/>
-            <ProjectCard src={img2} showToast={showToast}/>
-            <ProjectCard src={img2} showToast={showToast}/>
-            <ProjectCard src={img3} showToast={showToast}/>
-            <ProjectCard src={img3} showToast={showToast}/>
-            <ProjectCard src={img3} showToast={showToast}/>
-            <ProjectCard src={img3} showToast={showToast}/>
+            <ProjectCard src={img1} showToast={showToast} setDialog={setDialog} />
+            <ProjectCard src={img1} showToast={showToast} setDialog={setDialog} />
+            <ProjectCard src={img1} showToast={showToast} setDialog={setDialog} />
+            <ProjectCard src={img1} showToast={showToast} setDialog={setDialog} />
+            <ProjectCard src={img2} showToast={showToast} setDialog={setDialog} />
+            <ProjectCard src={img2} showToast={showToast} setDialog={setDialog} />
+            <ProjectCard src={img2} showToast={showToast} setDialog={setDialog} />
+            <ProjectCard src={img2} showToast={showToast} setDialog={setDialog} />
+            <ProjectCard src={img3} showToast={showToast} setDialog={setDialog} />
+            <ProjectCard src={img3} showToast={showToast} setDialog={setDialog} />
+            <ProjectCard src={img3} showToast={showToast} setDialog={setDialog} />
+            <ProjectCard src={img3} showToast={showToast} setDialog={setDialog} />
         </div>
         {
           isAdded? <Toast variant={'community'} message="Added to community"/> : null
