@@ -29,7 +29,7 @@
     display: grid;
     gap: .5rem;
     grid-template-columns: repeat(auto-fit, minmax(10rem,15rem));
-    justify-content: start;
+    justify-content: center;
     align-content: start;
 }
 

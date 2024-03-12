@@ -10,6 +10,8 @@ import Fullscreen from '@/components/Fullscreen';
 
 const layout = ({children}) => {
     const urls = [aston, grim, aston, grim, aston, grim]
+
+    
   return (
     <main className="w-full h-screen flex flex-col bg-neutral-950  relative">
         <nav className="flex justify-end items-center  border-gray-500 border-b h-[10%] p-2">
@@ -24,12 +26,12 @@ const layout = ({children}) => {
         <div className=" h-[90%] flex justify-between items-center relative overflow-auto">
             <Navigation/>
             <div className="flex-1 h-full relative flex flex-col items-center bg-neutral-950 border-l-gray-500 border-l text-white">
-                <Fullscreen/>
+                <Fullscreen />
                 <ScrollArea className="h-full w-full">
                     {children}
                 </ScrollArea>
             </div>
-            <CarouselSection urls={urls}/>
+            <CarouselSection urls={urls} />
         </div>
     </main>
   )

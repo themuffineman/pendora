@@ -4,7 +4,7 @@ import img1 from '../public/hero-images/img1.webp'
 
 const Sales = () => {
   return (
-      <div className='flex w-full justify-between items-center hover:bg-neutral-900 rounded-md p-2'>
+      <div className='cursor-pointer flex w-full justify-between items-center hover:bg-neutral-900 rounded-md p-2'>
         <div className='flex gap-2 items-center'>
             <div className='size-10'>
                 <Image src={img1} className='object-fit w-full h-full rounded-sm'/>

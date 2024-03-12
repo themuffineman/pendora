@@ -9,7 +9,7 @@ const RecentSales = () => {
         Most Remixed Art
       </div>
       <ScrollArea className="h-[20rem] p-4 ring-1 ring-neutral-900 rounded-sm bg-black flex justify-center" >
-        <div className='grid grid-cols-1 grid-flow-row gap-4 justify-items-center content-center w-[80%]'>
+        <div className='grid grid-cols-1 grid-flow-row gap-4 justify-center content-center w-[100%]'>
           <Sales/>
           <Sales/>
           <Sales/>
