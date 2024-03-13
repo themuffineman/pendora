@@ -12,9 +12,28 @@ const ImageGeneration = ({children}) => {
     const [isNegPrompt, setIsNegPrompt] = useState(false)
     const [prompt, setPrompt] = useState()
     const [negativePrompt, setNegativePrompt] = useState()
+    const [imageUrls, setImageUrls] = useState()
   return (
-    <ImageGenOptions.Provider value={{imagesQuantity, setImagesQuantity, aspectRatio, setAspectRatio, hdr, setHdr, upscaleIntensity, setUpscaleIntensity, isNegPrompt, setIsNegPrompt, prompt, setPrompt, negativePrompt, setNegativePrompt }}>{children}</ImageGenOptions.Provider>
+    <ImageGenOptions.Provider value={{
+      imagesQuantity, 
+      setImagesQuantity, 
+      aspectRatio, 
+      setAspectRatio, 
+      hdr, 
+      setHdr, 
+      upscaleIntensity, 
+      setUpscaleIntensity, 
+      isNegPrompt, 
+      setIsNegPrompt, 
+      prompt, 
+      setPrompt, 
+      negativePrompt, 
+      setNegativePrompt, 
+      imageUrls, 
+      setImageUrls}}>{children}</ImageGenOptions.Provider>
   )
 }
+
+
 
 export default ImageGeneration

@@ -33,8 +33,8 @@ export const POST = async (req) =>{
       const predictionJSON = await prediction.json()
       console.log('✔ Success on creating prediction')
       const output = await fetch(`http://localhost:3000/api/get-prediction/`, {method:"POST", body: JSON.stringify(predictionJSON.id)})
-      const outputJSON = await output.json()
-  
+      const outputJSON = await output.json() //returns an array of urls depending on how many images the user requested
+      
       return Response.json({urls: outputJSON}, {status: 201})  
       
       

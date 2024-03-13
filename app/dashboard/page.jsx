@@ -7,21 +7,6 @@ import PromptArea from '@/components/PromptArea';
 
 const Page = ()=>{
 
-    // const imageFetchBody = {
-    //     quantity: imagesQuantity,
-    //     width: aspectRatio.width,
-    //     height: aspectRatio.height,
-    //     prompt: prompt
-    // }
-
-    // const generateImage = async ()=>{
-    //     try {
-    //         const images = await fetch('/api/create-prediction', {method: "POST", body: JSON.stringify(imageFetchBody)})
-    //     } catch (error) {
-    //         console.log(error)
-            
-    //     }
-    // }
     return (
         <section className="flex flex-col gap-4 items-center w-full">
             <div className="w-full">
