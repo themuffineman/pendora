@@ -1,4 +1,7 @@
+"use client"
 import { useContext } from "react"
+import { ImageGenOptions } from '@/app/global-state/ImageGeneration';
+
 
 const ImageUpscale = () => {
   const {hdr, setHdr, upscaleIntensity, setUpscaleIntensity} = useContext(ImageGenOptions)

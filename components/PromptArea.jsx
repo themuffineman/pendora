@@ -1,5 +1,6 @@
 "use client"
 import React, { useContext, useState } from 'react'
+import { ImageGenOptions } from '@/app/global-state/ImageGeneration';
 import ActionBtn from "./ActionBtn";
 import { Switch } from "@/components/ui/switch";
 

@@ -1,5 +1,3 @@
-"use client"
-import {useState} from 'react'
 import ImagesNumber from "@/components/ImagesNumber";
 import AspectRatio from "@/components/AspectRatio";
 import ImageUpscale from "@/components/ImageUpscale";

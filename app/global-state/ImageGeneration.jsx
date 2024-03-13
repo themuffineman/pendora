@@ -2,7 +2,7 @@
 import { createContext, useState } from 'react';
 import config from '../../config';
 
-const ImageGenOptions = createContext()
+export const ImageGenOptions = createContext()
 
 const ImageGeneration = ({children}) => {
     const [imagesQuantity, setImagesQuantity] = useState(1)
