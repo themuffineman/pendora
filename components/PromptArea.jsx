@@ -6,8 +6,33 @@ import { Switch } from "@/components/ui/switch";
 
 
 const PromptArea = () => {
-    const { setPrompt, setNegativePrompt} = useContext(ImageGenOptions)
+    const { setPrompt, setNegativePrompt, imagesQuantity, aspectRatio, hdr, upscaleIntensity, prompt, negativePrompt, setImageUrls} = useContext(ImageGenOptions)
     const [isNegPrompt, setIsNegPrompt] = useState(false)
+
+    
+    
+    const imageFetchBody = {
+        quantity: imagesQuantity,
+        width: aspectRatio.width,
+        height: aspectRatio.height,
+        prompt: prompt,
+        negativePrompt: negativePrompt
+    }
+    
+    const imageUpscaleBody = {
+        hdr: hdr,
+        upscaleIntensity: upscaleIntensity
+    }
+    
+    const generateImage = async ()=>{
+        try {
+            const imagesJSON = await fetch('/api/create-prediction', {method: "POST", body: JSON.stringify(imageFetchBody)})
+            const images = await imagesJSON.json()
+            setImageUrls(images.urls)
+        } catch (error) {
+            console.log(error)
+        } 
+    }
 
 
   return (
@@ -18,7 +43,7 @@ const PromptArea = () => {
             <Switch id="negative prompt" checked={isNegPrompt} onClick={()=> setIsNegPrompt(prev => !prev)} />
         </div>
         <textarea onChange={(e)=> {setNegativePrompt(e.target.value)}} rows="5" cols="43" name="negative prompt" id="negative prompt" className={`text-white ${!isNegPrompt? 'hidden': 'block'} bg-black rounded-md focus:outline-pendora-yellow outline-1 p-2 w-full`}/>
-        <ActionBtn className="mt-4 w-full" >Generate Image</ActionBtn>
+        <ActionBtn onClick={generateImage} className="mt-4 w-full" >Generate Image</ActionBtn>
     </div>
   )
 }

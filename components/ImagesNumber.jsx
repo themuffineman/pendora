@@ -5,6 +5,7 @@ import { ImageGenOptions } from '@/app/global-state/ImageGeneration';
 
 const ImagesNumber = () => {
   const {imagesQuantity, setImagesQuantity} = useContext(ImageGenOptions)
+  console.log(imagesQuantity)
 
   return (
     config.maxImagesPerUser.map((num)=>(

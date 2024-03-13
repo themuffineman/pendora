@@ -31,7 +31,7 @@ const layout = ({children}) => {
                     {children}
                 </ScrollArea>
             </div>
-            <CarouselSection urls={urls} />
+            <CarouselSection/>
         </div>
     </main>
   )

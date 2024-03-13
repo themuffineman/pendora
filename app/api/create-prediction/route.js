@@ -4,6 +4,7 @@ export const POST = async (req) =>{
   
   
   const fetchData = await req.json()
+  console.log("This is the fetch data:", fetchData)
   const requestOptions = {
       method: 'POST',
       headers: {
@@ -17,10 +18,10 @@ export const POST = async (req) =>{
           "height": 1024,
           "prompt": `${fetchData.prompt}`,
           "scheduler": "KarrasDPM",
-          "num_outputs": `${fetchData.quantity}`,
+          "num_outputs": fetchData.quantity,
           "guidance_scale": 7.5,
           "apply_watermark": true,
-          "negative_prompt": `${fetchData.negativePrompt}`,
+          "negative_prompt": "worst quality", //`${fetchData.negativePrompt}`
           "prompt_strength": 0.8,
           "num_inference_steps": 20
         }
@@ -31,6 +32,7 @@ export const POST = async (req) =>{
     try {
       const prediction = await fetch('https://api.replicate.com/v1/predictions', requestOptions)
       const predictionJSON = await prediction.json()
+      console.log("This is the predictionJSON", predictionJSON)
       console.log('✔ Success on creating prediction')
       const output = await fetch(`http://localhost:3000/api/get-prediction/`, {method:"POST", body: JSON.stringify(predictionJSON.id)})
       const outputJSON = await output.json() //returns an array of urls depending on how many images the user requested
