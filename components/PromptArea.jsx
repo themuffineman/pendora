@@ -28,7 +28,8 @@ const PromptArea = () => {
         try {
             const imagesJSON = await fetch('/api/create-prediction', {method: "POST", body: JSON.stringify(imageFetchBody)})
             const images = await imagesJSON.json()
-            setImageUrls(images.urls)
+            setImageUrls(images.urls.output)
+            console.log("here are image urls:", images.urls.output)
         } catch (error) {
             console.log(error)
         } 

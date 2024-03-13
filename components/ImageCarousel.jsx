@@ -8,7 +8,7 @@ const ImageCarousel = ({src}) => {
     <CarouselItem className="">
         <Card>
             <CardContent className="flex aspect-square items-center justify-center p-0 relative">
-                <Image
+                <img
                     src={src}
                     className="w-full h-full rounded-md object-cover"
                 />

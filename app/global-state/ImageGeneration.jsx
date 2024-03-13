@@ -12,7 +12,7 @@ const ImageGeneration = ({children}) => {
     const [isNegPrompt, setIsNegPrompt] = useState(false)
     const [prompt, setPrompt] = useState()
     const [negativePrompt, setNegativePrompt] = useState()
-    const [imageUrls, setImageUrls] = useState()
+    const [imageUrls, setImageUrls] = useState([])
   return (
     <ImageGenOptions.Provider value={{
       imagesQuantity, 

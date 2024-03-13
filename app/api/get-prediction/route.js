@@ -1,4 +1,6 @@
+
 export const POST = async (req) =>{
+    
     const id = await req.json()
     console.log('Prediction ID is:', id)
     let isSuccess = false
