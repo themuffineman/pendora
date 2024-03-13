@@ -42,6 +42,7 @@
     }
 }
 
+
 @keyframes dialog_rise {
     from{
         transform: translateY(50%);

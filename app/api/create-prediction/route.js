@@ -4,7 +4,7 @@ export const POST = async (req) =>{
 
   
   
-  const prompt = await req.json()
+  const fetchData = await req.json()
   const requestOptions = {
       method: 'POST',
       headers: {
@@ -16,12 +16,12 @@ export const POST = async (req) =>{
         "input": {
           "width": 1024,
           "height": 1024,
-          "prompt": `${prompt}`,
+          "prompt": `${fetchData.prompt}`,
           "scheduler": "KarrasDPM",
-          "num_outputs": 2,
+          "num_outputs": `${fetchData.quantity}`,
           "guidance_scale": 7.5,
           "apply_watermark": true,
-          "negative_prompt": 'worst quality, low quality',
+          "negative_prompt": `${fetchData.negativePrompt}`,
           "prompt_strength": 0.8,
           "num_inference_steps": 20
         }
@@ -40,7 +40,7 @@ export const POST = async (req) =>{
       
       
     } catch (error) {
-      return Response.json({error}, {status: 500})
+      return Response.json({error: `❌Error on creating prediction: ${error}`}, {status: 500})
     }
 
 
