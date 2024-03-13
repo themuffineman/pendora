@@ -1,5 +1,8 @@
+import { useContext } from "react"
 
-const ImageUpscale = ({hdr, upscaleIntensity, setHdr, setUpscaleIntensity}) => {
+const ImageUpscale = () => {
+  const {hdr, setHdr, upscaleIntensity, setUpscaleIntensity} = useContext(ImageGenOptions)
+
   return (
     <div className='w-full p-2 flex flex-col gap-1'>
         <div className='flex flex-col gap-1 w-full'>
