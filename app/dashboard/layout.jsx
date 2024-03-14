@@ -1,15 +1,13 @@
-import aston from '../../public/hero-images/aston.webp';
-import grim from '../../public/hero-images/grim.png';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area" 
 import Navigation from "@/components/Navigation";
 import ActionBtn from "@/components/ActionBtn";
 import CarouselSection from '@/components/CarouselSection';
 import Fullscreen from '@/components/Fullscreen';
+import aston from '../../public/hero-images/aston.webp'
 
 
 const layout = ({children}) => {
-    const urls = [aston, grim, aston, grim, aston, grim]
 
     
   return (

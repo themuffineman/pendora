@@ -6,7 +6,7 @@ import { Switch } from "@/components/ui/switch";
 
 
 const PromptArea = () => {
-    const { setPrompt, setNegativePrompt, imagesQuantity, aspectRatio, hdr, upscaleIntensity, prompt, negativePrompt, setImageUrls} = useContext(ImageGenOptions)
+    const { setPrompt, setNegativePrompt, imagesQuantity, aspectRatio, hdr, upscaleIntensity, prompt, negativePrompt, setImageUrls, loadingImages, setLoadingImages} = useContext(ImageGenOptions)
     const [isNegPrompt, setIsNegPrompt] = useState(false)
 
     
@@ -26,12 +26,15 @@ const PromptArea = () => {
     
     const generateImage = async ()=>{
         try {
+            setLoadingImages(true)
             const imagesJSON = await fetch('/api/create-prediction', {method: "POST", body: JSON.stringify(imageFetchBody)})
             const images = await imagesJSON.json()
+            setLoadingImages(false)
             setImageUrls(images.urls.output)
             console.log("here are image urls:", images.urls.output)
         } catch (error) {
             console.log(error)
+            setLoadingImages(false)
         } 
     }
 
