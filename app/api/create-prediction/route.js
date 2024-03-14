@@ -1,8 +1,5 @@
 
 export const POST = async (req) =>{
-
-  
-  
   const fetchData = await req.json()
   console.log("This is the fetch data:", fetchData)
   const requestOptions = {

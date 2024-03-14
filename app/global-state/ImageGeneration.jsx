@@ -14,6 +14,7 @@ const ImageGeneration = ({children}) => {
     const [negativePrompt, setNegativePrompt] = useState()
     const [imageUrls, setImageUrls] = useState([])
     const [loadingImages, setLoadingImages] = useState(false) // this is a loading state for the image carousel
+    const [upscaleImgs, setUpscaleImgs] = useState([])
   return (
     <ImageGenOptions.Provider value={{
       imagesQuantity, 
@@ -33,7 +34,9 @@ const ImageGeneration = ({children}) => {
       imageUrls, 
       setImageUrls, 
       loadingImages, 
-      setLoadingImages}}>{children}</ImageGenOptions.Provider>
+      setLoadingImages, 
+      upscaleImgs, 
+      setUpscaleImgs}}>{children}</ImageGenOptions.Provider>
   )
 }
 

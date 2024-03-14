@@ -4,7 +4,7 @@ const config = {
     aspect_ratios: [
         {width:500, height: 500, title: 'square'},
         // {width:500, height: 500, title: 'landscape'},
-        {width:500, height: 500, title: 'portrait'}
+        {width:400, height: 800, title: 'portrait'}
     ]
 };
   
