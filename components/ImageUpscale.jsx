@@ -8,7 +8,6 @@ const ImageUpscale = () => {
   const {hdr, setHdr, upscaleIntensity, setUpscaleIntensity, upscaleImgs, prompt, setLoadingImages, setImageUrls} = useContext(ImageGenOptions)
   const calcHdr = hdr/100
   const calcIntentsity = upscaleIntensity/100
-  console.log("heres the hdr value", calcHdr)
 
   const upscaleFetchBody = {
     hdr: calcHdr,
@@ -16,7 +15,6 @@ const ImageUpscale = () => {
     imgUrl: upscaleImgs? upscaleImgs[0] : '',
     prompt: prompt
   }
-  console.log("heres the imgUrl:", upscaleImgs? upscaleImgs[0] : undefined)
 
   const createUpscale = async ()=>{
     try {
