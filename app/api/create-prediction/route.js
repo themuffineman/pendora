@@ -11,14 +11,14 @@ export const POST = async (req) =>{
       body: JSON.stringify({
         "version": "06775cd262843edbde5abab958abdbb65a0a6b58ca301c9fd78fa55c775fc019",
         "input": {
-          "width": 1024,
-          "height": 1024,
+          "width": fetchData.width,
+          "height": fetchData.height,
           "prompt": `${fetchData.prompt}`,
           "scheduler": "KarrasDPM",
           "num_outputs": fetchData.quantity,
           "guidance_scale": 7.5,
           "apply_watermark": true,
-          "negative_prompt": "worst quality", //`${fetchData.negativePrompt}`
+          "negative_prompt": "worst quality",
           "prompt_strength": 0.8,
           "num_inference_steps": 20
         }

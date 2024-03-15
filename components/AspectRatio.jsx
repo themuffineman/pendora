@@ -6,7 +6,6 @@ import { ImageGenOptions } from '@/app/global-state/ImageGeneration';
 
 const AspectRatio = () => {
   const {aspectRatio, setAspectRatio} = useContext(ImageGenOptions)
-  console.log('Aspect is', aspectRatio)
 
   const changeAspectRatio = (aspect)=>{
     switch (aspect){
