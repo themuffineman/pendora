@@ -14,13 +14,12 @@ const CarouselSection = () => {
         <Carousel className="p-10 w-[90%]">
             <CarouselContent className="w-full">
               { (!loadingImages && imageUrls)? 
-                imageUrls.map((url)=>(<ImageCarousel key={url} src={url}/>)) 
+                imageUrls.map((url, index)=>(<ImageCarousel key={url} src={url} index={index}/>)) 
                 : 
                 loadingImages? (<CardSkeleton/>) 
                 :
                 null
               }
-              {/* <CardSkeleton/> */}
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />

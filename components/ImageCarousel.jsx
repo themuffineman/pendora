@@ -3,6 +3,7 @@ import { useContext } from "react"
 import { ImageGenOptions } from '@/app/global-state/ImageGeneration';
 import { Card, CardContent } from "./ui/card"
 import { CarouselItem } from "./ui/carousel"
+import styles from './components.module.css'
 import Image from "next/image"
 
 
@@ -36,12 +37,12 @@ const ImageCarousel = ({src, index}) => {
   return (
     <CarouselItem className="">
         <Card>
-            <CardContent className="flex aspect-square items-center justify-center p-0 relative">
+            <CardContent className={`flex aspect-square items-center justify-center p-0 relative ${styles.gen_image}`}>
                 <img
                     src={src}
                     className="w-full h-full rounded-md object-cover"
                 />
-                <span className="absolute top-1 right-2 flex gap-4">
+                <span className="absolute top-1 right-2 flex gap-4 ">
                   <span onClick={createUpscale} className=" text-white text-sm bg-black rounded-sm w-max p-1 cursor-pointer hover:bg-neutral-700">
                     Upscale
                   </span>

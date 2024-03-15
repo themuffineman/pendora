@@ -33,6 +33,13 @@
     align-content: start;
 }
 
+.gen_image:hover span{
+    display: flex;
+}
+.gen_image span{
+    display: none;
+}
+
 @keyframes toast_rise {
     from{
         transform: translateY(1.25rem);

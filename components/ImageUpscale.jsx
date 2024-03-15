@@ -23,9 +23,6 @@ const ImageUpscale = () => {
                 <input value={hdr} onChange={(e)=> setHdr((e.target.value))} type="number" min="0" max="100" className="w-16 h-8 appearance-none focus:outline-white outline-1 bg-black text-white rounded-md p-2"/>
             </div>
         </div>
-        {/* <div>
-            <ActionBtn onClick={createUpscale}>Upscale Image</ActionBtn>
-        </div> */}
     </div>
   )
 }
