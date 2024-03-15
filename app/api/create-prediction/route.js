@@ -1,7 +1,9 @@
 
 export const POST = async (req) =>{
   const fetchData = await req.json()
+  
   console.log("This is the fetch data:", fetchData)
+
   const requestOptions = {
       method: 'POST',
       headers: {
@@ -30,13 +32,9 @@ export const POST = async (req) =>{
       const prediction = await fetch('https://api.replicate.com/v1/predictions', requestOptions)
       const predictionJSON = await prediction.json()
       console.log("This is the predictionJSON", predictionJSON)
-      console.log('✔ Success on creating prediction')
-      const output = await fetch(`http://localhost:3000/api/get-prediction/`, {method:"POST", body: JSON.stringify(predictionJSON.id)})
-      const outputJSON = await output.json() //returns an array of urls depending on how many images the user requested
-      
-      return Response.json({urls: outputJSON}, {status: 201})  
-      
-      
+      const outputJSON = await fetch(`http://localhost:3000/api/get-prediction/`, {method:"POST", body: JSON.stringify(predictionJSON.id)}).json()
+
+      return Response.json({urls: outputJSON.output}, {status: 201})   
     } catch (error) {
       return Response.json({error: `❌Error on creating prediction: ${error}`}, {status: 500})
     }
