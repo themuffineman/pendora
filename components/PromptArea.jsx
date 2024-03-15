@@ -6,7 +6,8 @@ import { Switch } from "@/components/ui/switch";
 
 
 const PromptArea = () => {
-    const { setPrompt, setNegativePrompt, imagesQuantity, aspectRatio, hdr, upscaleIntensity, prompt, negativePrompt, setImageUrls, setLoadingImages, setUpscaleImgs} = useContext(ImageGenOptions)
+
+    const { setPrompt, setNegativePrompt, imagesQuantity, aspectRatio, prompt, negativePrompt, setImageUrls, setLoadingImages, setUpscaleImgs} = useContext(ImageGenOptions)
     const [isNegPrompt, setIsNegPrompt] = useState(false)
 
     
@@ -16,27 +17,24 @@ const PromptArea = () => {
         width: aspectRatio.width,
         height: aspectRatio.height,
         prompt: prompt,
-        negativePrompt: negativePrompt
+        negativePrompt: isNegPrompt? negativePrompt : ''
     }
     
-    const imageUpscaleBody = {
-        hdr: hdr,
-        upscaleIntensity: upscaleIntensity
-    }
-    
-    const generateImage = async ()=>{
+    const generateImage = async () =>{
         try {
-            setLoadingImages(true)
+            // setLoadingImages(true)
             const imagesJSON = await fetch('/api/create-prediction', {method: "POST", body: JSON.stringify(imageFetchBody)})
             const images = await imagesJSON.json()
-            setLoadingImages(false)
-            console.log("here are image urls:", images.urls.output)
-            setImageUrls(images.urls.output)
+            // setLoadingImages(false)
+            console.log("here are image urls:", images)
+            setImageUrls(images.urls)
             setUpscaleImgs(images.urls.output)
         } catch (error) {
             console.log(error)
-            setLoadingImages(false)
         } 
+        finally{
+            setLoadingImages(false)
+        }
     }
 
 
