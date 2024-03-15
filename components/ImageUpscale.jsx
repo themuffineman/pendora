@@ -5,29 +5,7 @@ import ActionBtn from "./ActionBtn";
 
 
 const ImageUpscale = () => {
-  const {hdr, setHdr, upscaleIntensity, setUpscaleIntensity, upscaleImgs, prompt, setLoadingImages, setImageUrls} = useContext(ImageGenOptions)
-  const calcHdr = hdr/100
-  const calcIntentsity = upscaleIntensity/100
-
-  const upscaleFetchBody = {
-    hdr: calcHdr,
-    intensity: calcIntentsity,
-    imgUrl: upscaleImgs? upscaleImgs[0] : '',
-    prompt: prompt
-  }
-
-  const createUpscale = async ()=>{
-    try {
-        setLoadingImages(true)
-        const imagesJSON = await fetch('/api/create-upscale', {method: "POST", body: JSON.stringify(upscaleFetchBody)})
-        const images = await imagesJSON.json()
-        setLoadingImages(false)
-        console.log("here are upscale urls:", images.urls)
-        setImageUrls(images.urls) 
-    } catch (error) {
-        
-    }
-  }
+  const {hdr, setHdr, upscaleIntensity, setUpscaleIntensity} = useContext(ImageGenOptions)
 
   return (
     <div className='w-full p-2 flex flex-col gap-1'>
