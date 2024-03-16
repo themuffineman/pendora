@@ -22,7 +22,7 @@ const PromptArea = () => {
         negativePrompt: isNegPrompt? negativePrompt : ''
     }
     
-    const generateImage = async () =>{
+    const generateImage = async () => {
         try {
             setLoadingImages(true)
             const imagesJSON = await fetch('/api/create-prediction', {method: "POST", body: JSON.stringify(imageFetchBody)})
@@ -38,8 +38,7 @@ const PromptArea = () => {
         } catch (error) {
             console.log(error)
             setFetchError(true)
-        } 
-        finally{
+        } finally{
             setLoadingImages(false)
         }
     }
