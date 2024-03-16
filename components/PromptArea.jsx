@@ -27,7 +27,6 @@ const PromptArea = () => {
             setLoadingImages(true)
             const imagesJSON = await fetch('/api/create-prediction', {method: "POST", body: JSON.stringify(imageFetchBody)}) 
             const images = await imagesJSON.json()
-            console.log("here are image urls from prompt area:", images.urls)
             if(!images.urls){
                 throw new Error('Failed to Generate Image. Try Again')
             }
@@ -38,7 +37,7 @@ const PromptArea = () => {
         } catch (error) {
             console.error(error)
             setFetchError(true)
-            // setTimeout(()=>{setFetchError(false)}, 3000)
+            setTimeout(()=>{setFetchError(false)}, 5000)
             
         } finally{
             setLoadingImages(false)
