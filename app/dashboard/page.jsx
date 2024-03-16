@@ -26,7 +26,7 @@ const Page = ()=>{
                 </div>
                 
                 <div className="flex flex-col gap-2 w-full border-b p-2 border-neutral-500">
-                    <label className="text-white text-lg tracking-tighter font-medium">Upscale Image</label>
+                    <label className="text-white text-lg tracking-tighter font-medium">Upscale Settings</label>
                     <ImageUpscale/>
                 </div>
                 

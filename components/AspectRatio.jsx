@@ -27,7 +27,6 @@ const AspectRatio = () => {
     </div>
    
 
-    // <AspectRatio aspectToDisplay={aspect.title} changeAspectRatio={changeAspectRatio} selectedAspectRatio={aspectRatio.title} />
   )
 }
 
