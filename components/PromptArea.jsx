@@ -26,8 +26,8 @@ const PromptArea = () => {
             const imagesJSON = await fetch('/api/create-prediction', {method: "POST", body: JSON.stringify(imageFetchBody)})
             const images = await imagesJSON.json()
             // setLoadingImages(false)
-            console.log("here are image urls:", images)
-            setImageUrls(images.urls)
+            console.log("here are image urls from prompt area:", images)
+            setImageUrls(images.urls.output)
             setUpscaleImgs(images.urls.output)
         } catch (error) {
             console.log(error)

@@ -32,7 +32,8 @@ export const POST = async (req) =>{
         const predictionJSON = await prediction.json()
         console.log("This is the predictionJSON", predictionJSON)
         const output = await fetch(`http://localhost:3000/api/get-upscale/`, {method:"POST", body: JSON.stringify(predictionJSON.id)})
-        const outputJSON = output.json()
+        const outputJSON = await output.json()
+        console.log('The prediction output from create prediction:', outputJSON )
         
         return Response.json({url: outputJSON}, {status: 201})   
       } catch (error) {

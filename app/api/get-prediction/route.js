@@ -19,9 +19,13 @@ export const POST = async (req) =>{
             if(predictionJSON.status === "succeeded"){
                 console.log('✔ Success on getting prediction, we polled:', polls)
                 isSuccess = true
+                console.log('The prediction output from get prediction:', predictionJSON.output )
                 return Response.json({output: predictionJSON.output}, {status: 200})
             }else if (polls >= 20){
                 throw new Error('Maximum Polls Reached')
+            }
+            else if (predictionJSON.status === "failed"){
+                throw new Error(predictionJSON.error? predictionJSON.error : "Failed to get prediction")
             }
         }catch(error){
             return Response.error({error: `Error Getting Prediction: ${error}`}, {status: 500})
