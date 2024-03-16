@@ -8,7 +8,8 @@ import CardSkeleton from "./CardSkeleton";
 
 
 const CarouselSection = () => {
-  const {imageUrls, loadingImages} = useContext(ImageGenOptions)
+  const {imageUrls, loadingImages, imagesQuantity} = useContext(ImageGenOptions)
+  const cardArray = new Array(imagesQuantity).fill(1)
   return (
     <div  className={` flex-1 flex p-10 h-full flex-col gap-4 justify-center items-center relative bg-black bg-dot-white/[0.2] rounded-md`}>
         <Carousel className="p-10 w-[90%]">
@@ -16,7 +17,7 @@ const CarouselSection = () => {
               { !loadingImages && imageUrls? 
                 imageUrls.map((url, index)=>(<ImageCarousel key={url} src={url} index={index}/>)) 
                 :
-                loadingImages && <CardSkeleton/>              
+                loadingImages && cardArray.map(()=>(<CardSkeleton/>))              
               }
             </CarouselContent>
             <CarouselPrevious />
