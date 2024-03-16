@@ -68,6 +68,14 @@
     animation: toast_rise .5s ease;
     animation-fill-mode: forwards;
 }
+.tooltip{
+    transform: scale(0);
+    transition: transform .5s ease 
+}
+.tooltip_parent:hover .tooltip{
+    transform: scale(1);
+}
+
 
 
 

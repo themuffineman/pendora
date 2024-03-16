@@ -20,7 +20,7 @@ const AspectRatio = () => {
 
     <div className="grid grid-cols-2 grid-flow-row gap-2">
       {config.aspect_ratios.map((aspect, index)=>(
-        <div key={index} className={`${aspectRatio.title === aspect.title && 'ring-2 ring-pendora-yellow'}  capitalize p-2 w-full font-medium rounded-md text-white text-center bg-neutral-700 cursor-pointer hover:bg-neutral-800`} onClick={() => changeAspectRatio(aspect.title)}>
+        <div title={`${aspect.height} by ${aspect.width}`} key={index} className={`${aspectRatio.title === aspect.title && 'ring-2 ring-pendora-yellow'} tooltip_parent relative  capitalize p-2 w-full font-medium rounded-md text-white text-center bg-neutral-700 cursor-pointer hover:bg-neutral-800`} onClick={() => changeAspectRatio(aspect.title)}>
            {aspect.title}
         </div>
       ))}
