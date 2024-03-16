@@ -3,12 +3,14 @@ import React, { useContext, useState } from 'react'
 import { ImageGenOptions } from '@/app/global-state/ImageGeneration';
 import ActionBtn from "./ActionBtn";
 import { Switch } from "@/components/ui/switch";
+import Toast from './Toast';
 
 
 const PromptArea = () => {
 
     const { setPrompt, setNegativePrompt, imagesQuantity, aspectRatio, prompt, negativePrompt, setImageUrls, setLoadingImages, setUpscaleImgs} = useContext(ImageGenOptions)
     const [isNegPrompt, setIsNegPrompt] = useState(false)
+    const [fetchError, setFetchError] = useState(false)
 
     
     
@@ -22,15 +24,20 @@ const PromptArea = () => {
     
     const generateImage = async () =>{
         try {
-            // setLoadingImages(true)
+            setLoadingImages(true)
             const imagesJSON = await fetch('/api/create-prediction', {method: "POST", body: JSON.stringify(imageFetchBody)})
             const images = await imagesJSON.json()
-            // setLoadingImages(false)
-            console.log("here are image urls from prompt area:", images)
-            setImageUrls(images.urls.output)
-            setUpscaleImgs(images.urls.output)
+            console.log("here are image urls from prompt area:", images.urls)
+            if(!images.urls){
+                throw new Error('Image fetch error')
+            }
+            else{
+                setImageUrls(images.urls)
+                setUpscaleImgs(images.urls)
+            }
         } catch (error) {
             console.log(error)
+            setFetchError(true)
         } 
         finally{
             setLoadingImages(false)
@@ -47,6 +54,7 @@ const PromptArea = () => {
         </div>
         <textarea onChange={(e)=> {setNegativePrompt(e.target.value)}} rows="5" cols="43" name="negative prompt" id="negative prompt" className={`text-white ${!isNegPrompt? 'hidden': 'block'} bg-black rounded-md focus:outline-pendora-yellow outline-1 p-2 w-full`}/>
         <ActionBtn onClick={generateImage} className="mt-4 w-full" >Generate Image</ActionBtn>
+        {fetchError && <Toast message={'hello'}/>}
     </div>
   )
 }

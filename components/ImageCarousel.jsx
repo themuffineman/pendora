@@ -23,12 +23,12 @@ const ImageCarousel = ({src, index}) => {
 
   const createUpscale = async ()=>{
     try {
-        setLoadingImages(true)
+        // setLoadingImages(true)
         const imageJSON = await fetch('/api/create-upscale', {method: "POST", body: JSON.stringify(upscaleFetchBody)})
         const image = await imageJSON.json()
-        setLoadingImages(false)
-        console.log("here are upscale urls:", image.url)
-        setImageUrls((prev)=> prev[index] = image.url ) 
+        // setLoadingImages(false)
+        console.log("here are upscale urls:", image.urls)
+        setImageUrls((prev)=> prev[index] = image.urls ) 
     } catch (error) {
         
     }

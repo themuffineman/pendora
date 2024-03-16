@@ -37,7 +37,7 @@ export const POST = async (req) =>{
         
         return Response.json({url: outputJSON}, {status: 201})   
       } catch (error) {
-        return Response.json({error: `❌Error on creating prediction: ${error}`}, {status: 500})
+        return Response.json({error: `❌Error on creating upscale: ${error}`}, {status: 500})
       }
   
   

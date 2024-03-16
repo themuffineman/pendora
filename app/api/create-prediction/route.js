@@ -36,7 +36,7 @@ export const POST = async (req) =>{
       const outputJSON = await output.json()
       console.log('The prediction output from create prediction:', outputJSON )
 
-      return Response.json({urls: outputJSON}, {status: 201})   
+      return Response.json({urls: outputJSON.output}, {status: 201})   
     } catch (error) {
       return Response.json({error: `❌Error on creating prediction: ${error}`}, {status: 500})
     }
