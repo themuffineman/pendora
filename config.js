@@ -2,8 +2,8 @@ const config = {
     imageGenerationEnabled: true,
     maxImagesPerUser: [1,2,3,4],
     aspect_ratios: [
-        {width:400, height: 400, title: 'square'},
-        {width:400, height: 600, title: 'portrait'}
+        {width:1024, height: 1024, title: 'square'},
+        {width:1024, height: 1080, title: 'portrait'}
     ]
 };
   
