@@ -25,7 +25,6 @@ export const POST = async (req) =>{
                 console.log('The prediction output from get prediction:', prediction.output )
 
                 return Response.json({output: prediction.output}, {status: 200})
-
             }
             else if (polls >= 30){
                 throw new Error('Maximum Polls Reached')

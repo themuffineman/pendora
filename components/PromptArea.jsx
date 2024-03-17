@@ -8,7 +8,7 @@ import Toast from './Toast';
 
 const PromptArea = () => {
 
-    const { setPrompt, setNegativePrompt, imagesQuantity, aspectRatio, prompt, negativePrompt, setImageUrls, setLoadingImages, setUpscaleImgs} = useContext(ImageGenOptions)
+    const { setPrompt, setNegativePrompt, imagesQuantity, aspectRatio, prompt, negativePrompt, setImageUrls, setLoadingImages, loadingImages, setUpscaleImgs} = useContext(ImageGenOptions)
     const [isNegPrompt, setIsNegPrompt] = useState(false)
     const [fetchError, setFetchError] = useState(false)
 
@@ -53,7 +53,7 @@ const PromptArea = () => {
             <Switch id="negative prompt" checked={isNegPrompt} onClick={()=> setIsNegPrompt(prev => !prev)} />
         </div>
         <textarea onChange={(e)=> {setNegativePrompt(e.target.value)}} rows="5" cols="43" name="negative prompt" id="negative prompt" className={`text-white ${!isNegPrompt? 'hidden': 'block'} bg-black rounded-md focus:outline-pendora-yellow outline-1 p-2 w-full`}/>
-        <ActionBtn onClick={generateImage} className="mt-4 w-full" >Generate Image</ActionBtn>
+        <ActionBtn onClick={generateImage} className={`mt-4 w-full ${loadingImages && "pointer-events-none cursor-not-allowed"}`} >Generate Image</ActionBtn>
         {fetchError && <Toast message={'Failed to Generate Image. Try Again'} variant='error'/>}
     </div>
   )
