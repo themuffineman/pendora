@@ -7,7 +7,21 @@ const UpscaledImageCard = (beforeSrc, afterSrc) => {
     const createUpscale = ()=>{}
     const resizableRef = useRef(null)
 
+    const handleResize = (event)=> {
+        const rect = resizableRef.current.getBoundingClientRect(); 
+        const offsetX = rect.left - event.clientX ; 
+        console.log('heres the rect:', rect)
+        console.log('div width pos:', rect.left, 'mouse pos:', event.clientX)
+        resizableRef.current.style.width = `${rect.width + offsetX}px`; // Add offset to previous width
+    }
     
+    const handleMouseDown = () =>{
+    window.addEventListener('mousemove', handleResize); // Start resizing when mouse is pressed down
+    }
+
+    const handleMouseUp = () =>{
+    window.removeEventListener('mousemove', handleResize); // Stop resizing when mouse is released
+    }
   return (
     <CarouselItem className="">
         <div className="relative">
@@ -25,7 +39,7 @@ const UpscaledImageCard = (beforeSrc, afterSrc) => {
                         </a>
                     </span>
             </div>
-            <div ref={resizableRef} className={`flex aspect-square items-center justify-center p-0 absolute top-0 overflow-hidden resize-x ${styles.gen_image}`}>
+            <div ref={resizableRef} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} className={`flex aspect-square items-center justify-center p-0 absolute top-0 border-l-2 border-l-white overflow-hidden resize-x ${styles.gen_image}`}>
                   <img
                       src={afterSrc}
                       className="w-full h-full rounded-md object-cover"

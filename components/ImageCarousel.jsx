@@ -6,6 +6,7 @@ import { CarouselItem } from "./ui/carousel"
 import styles from './components.module.css'
 import Image from "next/image"
 import CardSkeleton from "./CardSkeleton";
+import UpscaledImageCard from "./UpscaledImageCard";
 
 
 
@@ -13,6 +14,7 @@ const ImageCarousel = ({src, index}) => {
 
   const {hdr, upscaleIntensity, prompt, setImageUrls} = useContext(ImageGenOptions)
   const [upscaling, setUpscaling] = useState(false)
+  const [isUpscaled, setIsUpscaled] = useState(true)
   const calcHdr = hdr/100
   const calcIntentsity = upscaleIntensity/100
 
@@ -35,6 +37,7 @@ const ImageCarousel = ({src, index}) => {
           arrayCopy[index] = image.url
           return arrayCopy;
         })
+        setIsUpscaled(true)
     } catch (error) {
         
     }
@@ -42,7 +45,7 @@ const ImageCarousel = ({src, index}) => {
 
   return (
     
-  upscaling? (<CardSkeleton/>) : (
+  upscaling? (<CardSkeleton/>) : isUpscaled? (<UpscaledImageCard/>) : (
     <CarouselItem className="">
 
         <Card>
