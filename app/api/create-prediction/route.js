@@ -11,18 +11,18 @@ export const POST = async (req) =>{
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        "version": "06775cd262843edbde5abab958abdbb65a0a6b58ca301c9fd78fa55c775fc019",
+        "version": "0a1710e0187b01a255302738ca0158ff02a22f4638679533e111082f9dd1b615",
         "input": {
           "width": fetchData.width,
           "height": fetchData.height,
           "prompt": fetchData.prompt,
-          "scheduler": "KarrasDPM",
+          "scheduler": "K_EULER",
           "num_outputs": fetchData.quantity,
-          "guidance_scale": 7.5,
+          "guidance_scale": 2,
           "apply_watermark": true,
           "negative_prompt": "worst quality",
-          "prompt_strength": 0.8,
-          "num_inference_steps": 20
+          // "prompt_strength": 0.8,
+          "num_inference_steps": 7
         }
       })
   };
@@ -32,7 +32,7 @@ export const POST = async (req) =>{
       const prediction = await fetch('https://api.replicate.com/v1/predictions', requestOptions)
       const predictionJSON = await prediction.json()
       console.log("This is the predictionJSON", predictionJSON)
-      const output = await fetch(`http://localhost:3000/api/get-prediction/`, {method:"POST", body: JSON.stringify(predictionJSON.id)})
+      const output = await fetch('/api/get-prediction', {method:"POST", body: JSON.stringify(predictionJSON.id)})
       const outputJSON = await output.json()
       console.log('The prediction output from create prediction:', outputJSON )
 
