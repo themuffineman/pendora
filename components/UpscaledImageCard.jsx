@@ -1,57 +1,53 @@
 'use client'
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { CarouselItem } from "./ui/carousel"
 import { ImageGenOptions } from '@/app/global-state/ImageGeneration';
+import styles from './components.module.css'
+import img1 from '../public/hero-images/img1.webp'
 
-const UpscaledImageCard = (beforeSrc, afterSrc) => {
-    const createUpscale = ()=>{}
-    const resizableRef = useRef(null)
 
-    const handleResize = (event)=> {
-        const rect = resizableRef.current.getBoundingClientRect(); 
-        const offsetX = rect.left - event.clientX ; 
-        console.log('heres the rect:', rect)
-        console.log('div width pos:', rect.left, 'mouse pos:', event.clientX)
-        resizableRef.current.style.width = `${rect.width + offsetX}px`; // Add offset to previous width
-    }
+const UpscaledImageCard = () => {
+    const [sliderPercentage, setSliderPercentage] = useState('50%')
+    const slider = useRef(null)
+
+    useEffect(()=>{
+        const handleSlide = (event)=>{
+            setSliderPercentage(`${event.target.value}%`)
+        }
+        slider.current.addEventListener("input", handleSlide)
+
+        return () => {
+            slider.current.removeEventListener("input", handleSlide);
+        }
+    },[])
     
-    const handleMouseDown = () =>{
-    window.addEventListener('mousemove', handleResize); // Start resizing when mouse is pressed down
-    }
-
-    const handleMouseUp = () =>{
-    window.removeEventListener('mousemove', handleResize); // Stop resizing when mouse is released
-    }
+    
   return (
     <CarouselItem className="">
-        <div className="relative">
-            <div className={`flex aspect-square items-center justify-center p-0 relative ${styles.gen_image}`}>
-                    <img
-                        src={beforeSrc}
-                        className="w-full h-full rounded-md object-cover"
-                    />
-                    <span className="absolute top-1 right-2 flex gap-4 ">
-                        <span onClick={createUpscale} className=" text-white text-sm bg-black rounded-sm w-max p-1 cursor-pointer hover:bg-neutral-700">
-                        Upscale
-                        </span>
-                        <a href={beforeSrc} download='image.png'>
-                        <svg className=" fill-white bg-black rounded-sm size-7 cursor-pointer hover:bg-neutral-700" xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" ><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
-                        </a>
-                    </span>
+        <div className="w-full relative grid place-content-center overflow-hidden rounded-md">
+            <div className=" w-full aspect-square items-center justify-center p-0">
+                <img
+                    src={'https://cdn.midjourney.com/e07c74f5-64ec-4d07-9c5c-129881065b80/0_1.webp'}
+                    className={`w-full h-full rounded-md object-cover object-left absolute inset-0 w-[${sliderPercentage}]`}
+                />
+                <img
+                    src={'https://cdn.midjourney.com/e07c74f5-64ec-4d07-9c5c-129881065b80/0_1.webp'}
+                    className="w-full h-full rounded-md object-cover object-left"
+                />
             </div>
-            <div ref={resizableRef} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} className={`flex aspect-square items-center justify-center p-0 absolute top-0 border-l-2 border-l-white overflow-hidden resize-x ${styles.gen_image}`}>
-                  <img
-                      src={afterSrc}
-                      className="w-full h-full rounded-md object-cover"
-                  />
-                  <span className="absolute top-1 right-2 flex gap-4 ">
-                    <span onClick={createUpscale} className=" text-white text-sm bg-black rounded-sm w-max p-1 cursor-pointer hover:bg-neutral-700">
-                      Upscale
-                    </span>
-                    <a href={afterSrc} download='image.png'>
-                      <svg className=" fill-white bg-black rounded-sm size-7 cursor-pointer hover:bg-neutral-700" xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" ><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
-                    </a>
-                  </span>
+            <input 
+            type="range" 
+            name="" 
+            id="" 
+            min={0} 
+            max={100} 
+            value={50} 
+            ref={slider}
+            className="absolute inset-0 cursor-pointer opacity-0 size-full "
+            aria-label="Percentage of Upscaled phot shown"/>
+            <div className={`slider-line absolute inset-0 w-[2px] pointer-events-none h-full bg-white z-10 left-[${sliderPercentage}] -translate-x-1/2`}></div>
+            <div className={`slider-button  absolute bg-white fill-black rounded-full p-1 grid place-items-center top-1/2 left-[${sliderPercentage}] -translate-x-1/2 -translate-y-1/2  pointer-events-none z-50 shadow-lg`} aria-hidden="true">
+                <svg className="" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M136,40V216a8,8,0,0,1-16,0V40a8,8,0,0,1,16,0ZM96,120H35.31l18.35-18.34A8,8,0,0,0,42.34,90.34l-32,32a8,8,0,0,0,0,11.32l32,32a8,8,0,0,0,11.32-11.32L35.31,136H96a8,8,0,0,0,0-16Zm149.66,2.34-32-32a8,8,0,0,0-11.32,11.32L220.69,120H160a8,8,0,0,0,0,16h60.69l-18.35,18.34a8,8,0,0,0,11.32,11.32l32-32A8,8,0,0,0,245.66,122.34Z"></path></svg>
             </div>
         </div>
     </CarouselItem>

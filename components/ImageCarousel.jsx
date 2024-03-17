@@ -45,7 +45,7 @@ const ImageCarousel = ({src, index}) => {
 
   return (
     
-  upscaling? (<CardSkeleton/>) : isUpscaled? (<UpscaledImageCard/>) : (
+  upscaling? (<CardSkeleton/>) : isUpscaled? (<UpscaledImageCard beforeSrc={'https://www.pexels.com/photo/man-playing-with-dogs-on-a-beach-19597529/'} afterSrc={'https://www.pexels.com/photo/man-playing-with-dogs-on-a-beach-19597529/'}/>) : (
     <CarouselItem className="">
 
         <Card>

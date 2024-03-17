@@ -5,6 +5,7 @@ import ImageCarousel from "./ImageCarousel";
 import { useContext } from "react";
 import { Skeleton } from "./ui/skeleton";
 import CardSkeleton from "./CardSkeleton";
+import UpscaledImageCard from "./UpscaledImageCard";
 
 
 const CarouselSection = () => {
@@ -17,7 +18,8 @@ const CarouselSection = () => {
               { !loadingImages && imageUrls? 
                 imageUrls.map((url, index)=>(<ImageCarousel key={url} src={url} index={index}/>)) 
                 :
-                loadingImages && cardArray.map(()=>(<CardSkeleton/>))              
+                <UpscaledImageCard/>             
+                // loadingImages && cardArray.map(()=>(<CardSkeleton/>))              
               }
             </CarouselContent>
             <CarouselPrevious />
