@@ -79,6 +79,19 @@
 .img_after{
     clip-path: inset(0 0 0 50%);
 }
+.slider{
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 40px;
+    width: 40px;
+    background: url('../public/more_vert_FILL0_wght400_GRAD0_opsz24.svg');
+    border-radius: 50%;
+    background-size: contain;
+    cursor: pointer;
+}
 
 
 
