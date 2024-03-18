@@ -76,6 +76,12 @@
     transform: scale(1);
 }
 
+.img_after{
+    clip-path: inset(0 0 0 50%);
+}
+
+
+
 
 
 
