@@ -12,7 +12,7 @@ import UpscaledImageCard from "./UpscaledImageCard";
 
 const ImageCarousel = ({src, index}) => {
 
-  const {hdr, upscaleIntensity, prompt, setImageUrls} = useContext(ImageGenOptions)
+  const {hdr, upscaleIntensity, prompt, setImageUrls, imageUrls, negativePrompt} = useContext(ImageGenOptions)
   const [upscaling, setUpscaling] = useState(false)
   const [isUpscaled, setIsUpscaled] = useState(false)
   const calcHdr = hdr/100
@@ -22,7 +22,8 @@ const ImageCarousel = ({src, index}) => {
     hdr: calcHdr,
     intensity: calcIntentsity,
     imgUrl: src,
-    prompt: prompt
+    prompt: prompt,
+    negativePrompt: negativePrompt
   }
 
   const createUpscale = async ()=>{
@@ -45,7 +46,7 @@ const ImageCarousel = ({src, index}) => {
 
   return (
     
-  upscaling? (<CardSkeleton/>) : isUpscaled? (<UpscaledImageCard/>) : (
+  upscaling? (<CardSkeleton/>) : isUpscaled? (<UpscaledImageCard before={src} after={imageUrls[index]}/>) : (
     <CarouselItem className="">
 
         <Card>

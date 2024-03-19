@@ -22,7 +22,7 @@ export const POST = async (req) =>{
           "resolution": "original",
           "resemblance": 0.75,
           "guidance_scale": 7,
-          "negative_prompt": "worst quality"
+          "negative_prompt": fetchData.negativePrompt? fetchData.negativePrompt : ''
         }
       })
     };
@@ -31,13 +31,16 @@ export const POST = async (req) =>{
       try {
         const predictionJSON = await fetch('https://api.replicate.com/v1/predictions', requestOptions)
         const prediction = await predictionJSON.json()
+        console.log("This is the upscale Object", prediction)
         const outputJSON = await fetch(`http://localhost:3000/api/get-upscale/`, {method:"POST", body: JSON.stringify(prediction.id)})
         const output = await outputJSON.json()
+        console.log('The prediction output from create upscale:', output)
+
         
-        return Response.json({url: output}, {status: 201})   
+        return Response.json({url: output.output}, {status: 201})   
       } catch (error) {
         console.log('we got errors boys!!!', error)
-        return Response.error(error, {status: 500})
+        return Response.json(error, {status: 500})
       }
   
   

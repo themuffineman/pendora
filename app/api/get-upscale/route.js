@@ -2,7 +2,7 @@
 export const POST = async (req) =>{
     
     const id = await req.json()
-    console.log('Prediction ID is:', id)
+    console.log('upscale ID is:', id)
     let isSuccess = false
     let polls = 0
 
@@ -30,7 +30,7 @@ export const POST = async (req) =>{
                 throw new Error(predictionJSON.error? predictionJSON.error : "Failed to get prediction")
             }
         }catch(error){
-            return Response.error({error: `Error Getting Upscale: ${error}`}, {status: 500})
+            return Response.json({error: `Error Getting Upscale: ${error}`}, {status: 500})
         }
     }
         
