@@ -10,7 +10,7 @@ const ImageGeneration = ({children}) => {
     const [hdr, setHdr] = useState(50)
     const [upscaleIntensity, setUpscaleIntensity] = useState(50)
     const [isNegPrompt, setIsNegPrompt] = useState(false)
-    const [prompt, setPrompt] = useState()
+    const [prompt, setPrompt] = useState('')
     const [negativePrompt, setNegativePrompt] = useState()
     const [imageUrls, setImageUrls] = useState([])
     const [loadingImages, setLoadingImages] = useState(false) // this is a loading state for the image carousel

@@ -21,7 +21,7 @@ export const POST = async (req) =>{
           "num_outputs": fetchData.quantity,
           "guidance_scale": 7.5,
           "apply_watermark": true,
-          "negative_prompt": "worst quality",
+          "negative_prompt": fetchData.negativePrompt,
           "prompt_strength": 0.8,
           "num_inference_steps": 20
         }
@@ -33,13 +33,13 @@ export const POST = async (req) =>{
       const predictionJSON = await fetch('https://api.replicate.com/v1/predictions', requestOptions)
       const prediction = await predictionJSON.json()
       console.log("This is the prediction Object", prediction)
-      const outputJSON = await fetch('/api/get-prediction', {method:"POST", body: JSON.stringify(prediction.id)})
+      const outputJSON = await fetch('http://localhost:3000/api/get-prediction', {method:"POST", body: JSON.stringify(prediction.id)})
       const output = await outputJSON.json()
       console.log('The prediction output from create prediction:', output)
 
       return Response.json({urls: output.output}, {status: 201})   
     } catch (error) {
-      return Response.error(`❌Error on creating prediction: ${error}`, {status: 500})
+      return Response.json({message: `❌Error on creating prediction: ${error}`}, {status: 500})
     }
 
 
