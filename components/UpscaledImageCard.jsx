@@ -13,11 +13,11 @@ const UpscaledImageCard = () => {
     const icon = useRef(null)
 
     const updateSlider = (event)=>{
-        afterImg.current.style.clipPath = ` inset(0 0 0 ${event.target.value}%)`
-        line.current.style.left = `${event.target.value}%)`
-        console.log('clip',  afterImg.current.style.left)
-        icon.current.style.left = ` ${event.target.value}%)`
-        console.log('icon left',  icon.current.style.left )
+        console.log('Heres the slider value', event.target.value)
+        console.log('Heres the line left value',  line.current.style.left)
+        afterImg.current.style.clipPath = ` inset(0 0 0 ${event.target.value}%) `
+        line.current.style.left = `${event.target.value}%`
+        icon.current.style.left = ` ${event.target.value}%`
 
     }
     
@@ -27,12 +27,12 @@ const UpscaledImageCard = () => {
             <div className=" w-full aspect-square relative overflow-hidden">
                 <img
                     src={'https://cdn.midjourney.com/88c96488-9fd6-48fa-b80c-5b081c111f75/0_2.webp'}
-                    className="block w-full h-full rounded-md object-cover absolute"
+                    className="block w-full h-full rounded-md object-cover absolute object-center"
                 />
                 <img
                     ref={afterImg}
                     src={'https://cdn.midjourney.com/e07c74f5-64ec-4d07-9c5c-129881065b80/0_1.webp'}
-                    className={`block w-full h-full rounded-md object-cover absolute ${styles.img_after}`}
+                    className={`block w-full h-full rounded-md object-cover absolute object-center ${styles.img_after}`}
                 />
             </div>
             <input 
