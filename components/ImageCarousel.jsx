@@ -14,7 +14,7 @@ const ImageCarousel = ({src, index}) => {
 
   const {hdr, upscaleIntensity, prompt, setImageUrls} = useContext(ImageGenOptions)
   const [upscaling, setUpscaling] = useState(false)
-  const [isUpscaled, setIsUpscaled] = useState(true)
+  const [isUpscaled, setIsUpscaled] = useState(false)
   const calcHdr = hdr/100
   const calcIntentsity = upscaleIntensity/100
 
