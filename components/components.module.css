@@ -79,19 +79,40 @@
 .img_after{
     clip-path: inset(0 0 0 50%);
 }
-.slider{
-    outline: none;
+
+.slider_line {
+    position: absolute;
+    width: 2px;
+    pointer-events: none;
+    height: 100%;
+    background-color: white;
+    z-index: 10;
+    left: 20%;
+    transform: translateX(-50%);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
-.slider::-webkit-slider-thumb{
-    -webkit-appearance: none;
-    height: 40px;
-    width: 40px;
-    background: url('../public/more_vert_FILL0_wght400_GRAD0_opsz24.svg');
-    border-radius: 50%;
-    background-size: contain;
-    cursor: pointer;
+.slider_button {
+    position: absolute;
+    background-color: white;
+    fill: black; 
+    border-radius: 9999px; 
+    padding: 0.25rem; 
+    display: grid;
+    place-items: center; 
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 50;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); 
 }
+
+
+
 
 
 
