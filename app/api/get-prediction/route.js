@@ -33,7 +33,7 @@ export const POST = async (req) =>{
                 throw new Error(prediction.error? prediction.error : "Failed to get prediction")
             }
         }catch(error){
-            return Response.error({error: `Error Getting Prediction: ${error}`}, {status: 500})
+            return Response.json({error: `Error Getting Prediction: ${error}`}, {status: 500})
         }
     }
         

@@ -50,9 +50,12 @@ const ImageCarousel = ({src, index}) => {
 
         <Card>
             <CardContent className={`flex aspect-square items-center justify-center p-0 relative ${styles.gen_image}`}>
-                <img
+                <Image
                     src={src}
+                    fill={true}
                     className="w-full h-full rounded-md object-cover"
+                    alt={prompt}
+                    // placeholder="blur"
                 />
                 <span className="absolute top-1 right-2 flex gap-4 ">
                   <span onClick={createUpscale} className=" text-white text-sm bg-black rounded-sm w-max p-1 cursor-pointer hover:bg-neutral-700">
