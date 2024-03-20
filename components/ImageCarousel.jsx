@@ -34,7 +34,7 @@ const ImageCarousel = ({src, index}) => {
         setUpscaling(false)
         console.log("here are upscale urls:", image.url)
         setImageUrls((prev)=> {
-          arrayCopy = [...prev]
+          let arrayCopy = [...prev]
           arrayCopy[index] = image.url
           return arrayCopy;
         })
