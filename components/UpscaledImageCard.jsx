@@ -21,12 +21,12 @@ const UpscaledImageCard = ({before, after}) => {
         <div className="w-full">
             <div className=" w-full aspect-square relative overflow-hidden">
                 <img
-                    src={'https://cdn.midjourney.com/88c96488-9fd6-48fa-b80c-5b081c111f75/0_2.webp'}
+                    src={before}
                     className="block w-full h-full rounded-md object-cover absolute object-center"
                 />
                 <img
                     ref={afterImg}
-                    src={'https://cdn.midjourney.com/e07c74f5-64ec-4d07-9c5c-129881065b80/0_1.webp'}
+                    src={after}
                     className={`block w-full h-full rounded-md object-cover absolute object-center ${styles.img_after}`}
                 />
             </div>

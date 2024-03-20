@@ -7,6 +7,7 @@ import styles from './components.module.css'
 import Image from "next/image"
 import CardSkeleton from "./CardSkeleton";
 import UpscaledImageCard from "./UpscaledImageCard";
+import Toast from "./Toast";
 
 
 
@@ -15,6 +16,7 @@ const ImageCarousel = ({src, index}) => {
   const {hdr, upscaleIntensity, prompt, setImageUrls, imageUrls, negativePrompt} = useContext(ImageGenOptions)
   const [upscaling, setUpscaling] = useState(false)
   const [isUpscaled, setIsUpscaled] = useState(false)
+  const [upscaleError, setUpscaleError] = useState(false)
   const calcHdr = hdr/100
   const calcIntentsity = upscaleIntensity/100
 
@@ -32,15 +34,23 @@ const ImageCarousel = ({src, index}) => {
         const imageJSON = await fetch('/api/create-upscale', {method: "POST", body: JSON.stringify(upscaleFetchBody)})
         const image = await imageJSON.json()
         setUpscaling(false)
+        if(!image.url){
+          throw new Error('Failed to Upscale Image')
+        }
         console.log("here are upscale urls:", image.url)
         setImageUrls((prev)=> {
           let arrayCopy = [...prev]
-          arrayCopy[index] = image.url
+          arrayCopy[index] = image.url[0]
           return arrayCopy;
         })
         setIsUpscaled(true)
     } catch (error) {
-        
+        console.error(error)
+        setUpscaling(false)
+        setUpscaleError(true)
+        setTimeout(()=>{
+          setUpscaleError(false)
+        }, 3000)
     }
   }
 
@@ -68,6 +78,7 @@ const ImageCarousel = ({src, index}) => {
                 </span>
             </CardContent>
         </Card>
+        {upscaleError && <Toast message={'Failed to Upscale Image. Try Again'} variant='error'/>}
     </CarouselItem>)
   )
 }
