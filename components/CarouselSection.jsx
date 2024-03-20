@@ -16,7 +16,7 @@ const CarouselSection = () => {
               { !loadingImages && imageUrls? 
                 imageUrls.map((url, index)=>(<ImageCarousel key={url} src={url} index={index}/>)) 
                 :
-                loadingImages && cardArray.map(()=>(<CardSkeleton/>))              
+                loadingImages && cardArray.map((_,index)=>(<CardSkeleton key={index}/>))              
               }
             </CarouselContent>
             <CarouselPrevious />
