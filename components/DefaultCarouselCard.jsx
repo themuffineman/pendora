@@ -4,6 +4,7 @@ import styles from './components.module.css'
 import Toast from './Toast'
 
 const DefaultCarouselCard = ({src, alt, createUpscale, upscaleError}) => {
+    console.log('default has mounted')
   return (
     <CarouselItem className="relative">
         <div>

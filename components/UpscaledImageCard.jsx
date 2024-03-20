@@ -11,6 +11,8 @@ const UpscaledImageCard = ({before, after}) => {
     const line = useRef(null)
     const icon = useRef(null)
     console.log('I have mounted!!!')
+    console.log('I have mounted!!!')
+    console.log('I have mounted!!!')
 
     const updateSlider = (event)=>{
         afterImg.current.style.clipPath = ` inset(0 0 0 ${event.target.value}%) `
@@ -21,12 +23,12 @@ const UpscaledImageCard = ({before, after}) => {
         <div className="w-full">
             <div className=" w-full aspect-square relative overflow-hidden">
                 <img
-                    src='http://localhost:3000/_next/image?url=https%3A%2F%2Freplicate.delivery%2Fpbxt%2FRj01JBVhZU4YLZmLpkDj8uSe3jxp5if1iUxFltVfnwU4NIElA%2Fout-0.png&w=1920&q=75'
+                    src='https://cdn.midjourney.com/ff9c53ac-b16c-4bb7-b96b-552d31c12d48/0_0.webp'
                     className="block w-full h-full rounded-md object-cover absolute object-center"
                 />
                 <img
-                    ref='http://localhost:3000/_next/image?url=https%3A%2F%2Freplicate.delivery%2Fpbxt%2FRj01JBVhZU4YLZmLpkDj8uSe3jxp5if1iUxFltVfnwU4NIElA%2Fout-0.png&w=1920&q=75'
-                    src={after}
+                    ref={afterImg}
+                    src='https://cdn.midjourney.com/ee7be517-a72c-476b-ada5-ee2676f28920/0_0.webp'
                     className={`block w-full h-full rounded-md object-cover absolute object-center ${styles.img_after}`}
                 />
             </div>
