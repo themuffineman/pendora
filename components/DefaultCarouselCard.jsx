@@ -1,13 +1,13 @@
 import React from 'react'
-import { CarouselItem } from './ui/carousel'
 import styles from './components.module.css'
 import Toast from './Toast'
+import Image from 'next/image'
 
-const DefaultCarouselCard = ({src, alt, createUpscale, upscaleError}) => {
-    console.log('default has mounted')
+const DefaultCarouselCard = ({src, alt, createUpscale, upscaleError, index}) => {
+    
   return (
-    <CarouselItem className="relative">
-        <div>
+    <div className="relative w-full">
+        <div id={`slide-${index + 1}`}>
             <div className={`flex aspect-square items-center justify-center p-0 relative ${styles.gen_image}`}>
                 <Image
                     src={src}
@@ -27,7 +27,7 @@ const DefaultCarouselCard = ({src, alt, createUpscale, upscaleError}) => {
             </div>
         </div>
         {upscaleError && <Toast message={'Failed to Upscale Image. Try Again'} variant='error'/>}
-    </CarouselItem>
+    </div>
   )
 }
 

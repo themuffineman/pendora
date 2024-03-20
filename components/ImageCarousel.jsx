@@ -1,13 +1,8 @@
 "use client"
 import { useContext, useState } from "react"
 import { ImageGenOptions } from '@/app/global-state/ImageGeneration';
-import { Card, CardContent } from "./ui/card"
-import { CarouselItem } from "./ui/carousel"
-import styles from './components.module.css'
-import Image from "next/image"
 import CardSkeleton from "./CardSkeleton";
 import UpscaledImageCard from "./UpscaledImageCard";
-import Toast from "./Toast";
 import DefaultCarouselCard from "./DefaultCarouselCard";
 
 
@@ -16,7 +11,7 @@ const ImageCarousel = ({src, index}) => {
 
   const {hdr, upscaleIntensity, prompt, setImageUrls, imageUrls, negativePrompt} = useContext(ImageGenOptions)
   const [upscaling, setUpscaling] = useState(false)
-  const [isUpscaled, setIsUpscaled] = useState(true)
+  const [isUpscaled, setIsUpscaled] = useState(false)
   const [upscaleError, setUpscaleError] = useState(false)
   const calcHdr = hdr/100
   const calcIntentsity = upscaleIntensity/100
@@ -55,7 +50,7 @@ const ImageCarousel = ({src, index}) => {
   }
 
   return ( 
-  upscaling? (<CardSkeleton/>) : isUpscaled? (<UpscaledImageCard before={src} after={imageUrls[index]}/>) : (<DefaultCarouselCard src={src} alt={prompt} createUpscale={createUpscale} upscaleError={upscaleError}/>)
+  upscaling? (<CardSkeleton index={index} />) : isUpscaled? (<UpscaledImageCard index={index} before={src} after={imageUrls[index]}/>) : (<DefaultCarouselCard index={index} src={src} alt={prompt} createUpscale={createUpscale} upscaleError={upscaleError}/>) //you only added indexes
   )
 }
 
